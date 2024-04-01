@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20 ">
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <Link to="/" className="flex items-center flex-shrink-0 mr-4">
-              <img src={logo} alt="logo image" />
+              <img src={logo} alt="logo image"/>
               <span className="hidden md:block text-white text-2xl font-bold ml-2">
                 React JobBoard
               </span>
