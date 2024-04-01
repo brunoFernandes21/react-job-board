@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const HomeCards = () => {
   return (
-    <section className="py-4">
+    <section className="py-4 dark:bg-slate-800">
       <div className="lg:container m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg">
           <Card>
@@ -13,7 +13,7 @@ const HomeCards = () => {
             </p>
             <Link
               to="/jobs"
-              className="incline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
+              className="incline-block bg-slate-800 text-white rounded-lg px-4 py-2 hover:bg-gray-700"
             >
               Browse Jobs
             </Link>
