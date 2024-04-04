@@ -15,9 +15,9 @@ const JobListening = ({ job }) => {
       <div className="p-4">
         <div className="mb-6">
           <div className="text-gray-600 my-2">{job.type}</div>
-          <h3 className="text-xl font-bold">{job.title}</h3>
+          <h3 className="text-xl text-black font-bold">{job.title}</h3>
         </div>
-        <div className="mb-5">{description}</div>
+        <div className="mb-5 text-black">{description}</div>
         <button onClick={() => setShowFullDescription((prevState) => !prevState)} className="text-blue-500 mb-5 hover:text-blue-600">
           {showFullDescription ? "Show Less" : "Show More"}
         </button>
