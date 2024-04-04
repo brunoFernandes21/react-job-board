@@ -1,7 +1,10 @@
+import JobListings from "../components/JobListings"
 
 const JobsPage = () => {
   return (
-    <div className="dark:bg-slate-800 dark:text-slate-100 h-[91.3vh]" >Jobs</div>
+    <section className="bg-blue-50 px-4 py-6 dark:bg-slate-800 dark:text-slate-100">
+      <JobListings/>
+    </section>
   )
 }
 
