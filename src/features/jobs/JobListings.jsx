@@ -1,13 +1,14 @@
 import JobListing from "./JobListing";
 import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import {
   selectAllJobs,
   selectStatus,
   selectError,
   fetchJobs,
-} from "../features/jobs/jobsSlice";
+} from "./jobsSlice";
 import { useEffect } from "react";
-import Spinner from "./Spinner";
+import Spinner from "../../components/Spinner";
 
 const JobListings = ( { isHome = false}) => {
   const jobs = useSelector(selectAllJobs);
@@ -15,24 +16,14 @@ const JobListings = ( { isHome = false}) => {
 
   const jobStatus = useSelector(selectStatus);
   const error = useSelector(selectError);
-
+  const currentLocation = useLocation()
+  
   useEffect(() => {
-    if (jobStatus === "idle") {
-      dispatch(fetchJobs());
-    }
-  }, [jobStatus, dispatch]);
+      if (jobStatus === "idle") {
+        dispatch(fetchJobs());
+      }
+  }, [jobStatus, dispatch, currentLocation]);
 
-  let content;
-
-  // if (jobStatus === "loading") {
-  //   content = <Spinner loading={jobStatus}/>
-  // } else if (jobStatus === "succeeded") {
-  //   const jobListings = isHome ? jobs.slice(0, 3) : jobs;
-  //   content = jobListings.map((job) => 
-  //   <JobListing key={job.id} job={job} />);
-  // } else if(jobStatus === 'failed') {
-  //   content = <div className="text-white text-center text-xl">{error}</div>
-  // }
   const jobListings = isHome ? jobs.slice(0, 3) : jobs;
   return (
     <section className="bg-blue-50 px-4 py-10 dark:bg-slate-800">

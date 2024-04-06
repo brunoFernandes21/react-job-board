@@ -1,18 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 import axios from "axios";
 
-const JOBS_URL = "http://localhost:8000/jobs"
-
 const initialState = {
     jobs: [],
     status: 'idle',
     error: null
 }
 
+const apiUrl = "/api/jobs"
+
 export const fetchJobs = createAsyncThunk('jobs/fetchJobs', async () => {
-  
     try {
-        const response = await axios.get(JOBS_URL)
+        const response = await axios.get(apiUrl)
         return response.data
     } catch (error) {
         return error.message
@@ -22,9 +21,7 @@ export const fetchJobs = createAsyncThunk('jobs/fetchJobs', async () => {
 export const jobsSlice = createSlice({
     name: "jobs",
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: builder => {
         builder.addCase(fetchJobs.pending, (state, action) => {
             state.status = "loading"
@@ -45,4 +42,5 @@ export const jobsSlice = createSlice({
 export const selectStatus = state => state.jobs.status
 export const selectError = state => state.jobs.error
 export const selectAllJobs = state => state.jobs.jobs 
+export const selectJobById = (state, postId) => state.jobs.jobs.find(job => job.id === postId)
 export default jobsSlice.reducer

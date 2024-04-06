@@ -10,8 +10,8 @@ const Spinner = ({ loading }) => {
       color="#1D40AF"
       loading={loading}
       cssOverride={override}
+      aria-label="Loading"
       size={150}
-      aria-label="Loading Spinner"
     />
   );
 };

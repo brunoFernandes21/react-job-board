@@ -4,7 +4,6 @@ import { selectAllJobs } from "../features/jobs/jobsSlice";
 
 const ViewAllJobs = () => {
   const jobs = useSelector(selectAllJobs);
-  console.log(jobs);
     return (
       <section className="py-10 dark:bg-slate-800">
         <div className="max-w-lg m-auto px-6 py-4">
