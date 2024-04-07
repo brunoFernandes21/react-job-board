@@ -12,6 +12,7 @@ import Spinner from "../../components/Spinner";
 import {
   FaExclamationTriangle,
   FaArrowLeft,
+  FaArrowCircleLeft,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
@@ -61,9 +62,10 @@ const SingleJobPage = () => {
             <div className="container m-auto py-6 px-6">
               <Link
                 to="/jobs"
-                className="text-blue-500 hover:text-blue-600 flex items-center"
+                className="text-blue-500 hover:text-blue-600 flex items-center hover:underline"
               >
-                <FaArrowLeft className="mr-2" /> Back to Job Listings
+                <FaArrowCircleLeft className="mr-2" /> 
+                Back to Job Listings
               </Link>
             </div>
           </section>
