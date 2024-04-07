@@ -32,11 +32,12 @@ const JobListings = ( { isHome = false}) => {
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
         {jobStatus === "loading" ? (
-          <Spinner loading={jobStatus}/>
+          <Spinner text="loading..." loading={jobStatus}/>
         ) : jobStatus === "succeeded" ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {jobListings.map((job) => 
-            <JobListing key={job.id} job={job} />)}
+            <JobListing key={job.id} job={job} />)
+            }
           </div>
         ) : jobStatus === 'failed' ? (
           <div className="text-white text-center text-xl">{error}</div>
