@@ -11,7 +11,6 @@ import { useEffect } from "react";
 import Spinner from "../../components/Spinner";
 import {
   FaExclamationTriangle,
-  FaArrowLeft,
   FaArrowCircleLeft,
   FaMapMarkerAlt,
 } from "react-icons/fa";

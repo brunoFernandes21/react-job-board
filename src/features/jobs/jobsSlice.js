@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
 const initialState = {
   jobs: [],
   status: "idle",
@@ -9,10 +8,21 @@ const initialState = {
 
 const apiUrl = "/api/jobs";
 
+//fetch posts
 export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
   const response = await axios.get(apiUrl);
   return response.data;
 });
+
+//post new job
+export const addNewJob = createAsyncThunk("jobs/addNewJob", async(body) => {
+  try {
+    const response = await axios.post(apiUrl, body);
+    return response.data;
+  } catch (error) {
+    return error.message
+  }
+})
 
 export const jobsSlice = createSlice({
   name: "jobs",
@@ -31,7 +41,10 @@ export const jobsSlice = createSlice({
       .addCase(fetchJobs.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
-      });
+      })
+      .addCase(addNewJob.fulfilled, (state, action) => {
+        state.jobs.push(action.payload)
+      })
   },
 });
 
