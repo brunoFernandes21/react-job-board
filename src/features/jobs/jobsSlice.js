@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { sub } from "date-fns";
+
+
 const initialState = {
   jobs: [],
   status: "idle",
@@ -35,14 +38,27 @@ export const jobsSlice = createSlice({
       })
       .addCase(fetchJobs.fulfilled, (state, action) => {
         state.status = "succeeded";
+        //add date to fetched jobs
+        // let min = 1;
+        const jobs = action.payload
+        // const loadedJobs = jobs.map((job) => {
+        //   if(job.id.length === 1) {
+        //     job.date = sub(new Date(), { minutes: min++ }).toISOString()
+        //   } else {
+        //     job.date = new Date().toISOString()
+        //   }
+        //   return job
+        // })
         // Add any fetched posts to the array
-        state.jobs = [...action.payload];
+        // console.log(jobs);
+        state.jobs = [...jobs];
       })
       .addCase(fetchJobs.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       })
       .addCase(addNewJob.fulfilled, (state, action) => {
+        // action.payload.date = new Date().toISOString() 
         state.jobs.push(action.payload)
       })
   },

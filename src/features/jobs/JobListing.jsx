@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
+import TimeAgo from "./TimeAgo";
 
 const JobListening = ({ job }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -10,12 +11,16 @@ const JobListening = ({ job }) => {
   if (!showFullDescription) {
     description = description.substring(0, 110) + "...";
   }
+
   return (
     <div className="bg-white rounded-xl shadow-md relative">
       <div className="p-4">
         <div className="mb-6">
           <div className="text-gray-600 my-2">{job.type}</div>
           <h3 className="text-xl text-black font-bold">{job.title}</h3>
+          <div>
+            <span className="flex gap-2 text-gray-600 my-2"> posted . <TimeAgo timestamp={job.date}/> </span>
+          </div>
         </div>
         <div className="mb-5 text-black">{description}</div>
         <button onClick={() => setShowFullDescription((prevState) => !prevState)} className="text-blue-500 mb-5 hover:text-blue-600">

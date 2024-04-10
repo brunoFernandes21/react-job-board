@@ -7,6 +7,7 @@
       "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
       "location": "London",
       "salary": "£70K - £100K",
+      "date": "2024-04-09T21:28:42.298Z",
       "company": {
         "name": "NewTek Solutions",
         "description": "NewTek Solutions is a leading technology company specializing in web development and digital solutions. We pride ourselves on delivering high-quality products and services to our clients while fostering a collaborative and innovative work environment.",
@@ -21,6 +22,7 @@
       "location": "Cambridge",
       "description": "Join our team as a Front-End Developer in sunny Miami, FL. We are looking for a motivated individual with a passion for crafting beautiful and responsive web applications. Experience with UI/UX design principles and a strong attention to detail are highly desirable.",
       "salary": "£70K - £80K",
+      "date": "2024-04-09T21:18:42.298Z",
       "company": {
         "name": "Veneer Solutions",
         "description": "Veneer Solutions is a creative agency specializing in digital design and development. Our team is dedicated to pushing the boundaries of creativity and innovation to deliver exceptional results for our clients.",
@@ -35,6 +37,7 @@
       "location": "Leeds",
       "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
       "salary": "£70K - £80K",
+      "date": "2024-04-09T21:08:42.298Z",
       "company": {
         "name": "Dolor Cloud",
         "description": "Dolor Cloud is a leading technology company specializing in digital solutions for businesses of all sizes. With a focus on innovation and customer satisfaction, we are committed to delivering cutting-edge products and services.",
@@ -49,6 +52,7 @@
       "description": "Join our team as a Part-Time Front-End Developer in beautiful Pheonix, AZ. We are looking for a self-motivated individual with a passion for creating engaging user experiences. This position offers flexible hours and the opportunity to work remotely.",
       "location": "Liverpool",
       "salary": "£60K - £70K",
+      "date": "2024-04-09T20:28:42.298Z",
       "company": {
         "name": "Alpha Elite",
         "description": "Alpha Elite is a dynamic startup specializing in digital marketing and web development. We are committed to fostering a diverse and inclusive workplace where creativity and innovation thrive.",
@@ -63,6 +67,7 @@
       "description": "Exciting opportunity for a Full-Time Front-End Developer in bustling Atlanta, GA. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
       "location": "Manchester",
       "salary": "£90K - £100K",
+      "date": "2024-04-09T19:28:42.298Z",
       "company": {
         "name": "Browning Technologies",
         "description": "Browning Technologies is a rapidly growing technology company specializing in e-commerce solutions. We offer a dynamic and collaborative work environment where employees are encouraged to think creatively and innovate.",
@@ -77,6 +82,7 @@
       "description": "Join our team as a Front-End Developer in beautiful Portland, OR. We are looking for a skilled and enthusiastic individual to help us create innovative web solutions. Competitive salary and great benefits package available.",
       "location": "London",
       "salary": "£100K - £110K",
+      "date": "2024-04-09T20:38:38.298Z",
       "company": {
         "name": "Port Solutions INC",
         "description": "Port Solutions is a leading technology company specializing in software development and digital marketing. We are committed to providing our clients with cutting-edge solutions and our employees with a supportive and rewarding work environment.",
@@ -85,17 +91,18 @@
       }
     },
     {
-      "id": "89b5",
-      "title": "Senior Full Stack React/Typescript Developer",
+      "id": "e9aa",
+      "title": "Junior React Developer",
       "type": "Full-Time",
-      "salary": "£100K - 125K",
-      "location": "London UK",
-      "description": "We have one more step for this section. When we add a new post from the <AddPostForm>, that post is only getting added to the Redux store inside our app. We need to actually make an API call that will create the new post entry in our fake API server instead, so that it's \"saved\". (Since this is a fake API, the new post won't persist if we reload the page, but if we had a real backend server it would be available next time we reload.)",
+      "salary": "Under $50K",
+      "location": "Leeds",
+      "description": "This is because the post entries are being randomly generated by the fake API server, which also randomly generates a set of fake users every time we reload the page. We need to update our users slice to fetch those users when the application starts",
+      "date": "2024-04-10T06:52:11.555Z",
       "company": {
         "name": "Dedalus UKI",
-        "description": "We have one more step for this section. When we add a new post from the <AddPostForm>, that post is only getting added to the Redux store inside our app. We need to actually make an API call that will create the new post entry in our fake API server instead, so that it's \"saved\". (Since this is a fake API, the new post won't persist if we reload the page, but if we had a real backend server it would be available next time we reload.)",
+        "description": "This is because the post entries are being randomly generated by the fake API server, which also randomly generates a set of fake users every time we reload the page. We need to update our users slice to fetch those users when the application starts",
         "contactEmail": "dedalus@gmail.com",
-        "contactPhone": "01126539720"
+        "contactPhone": "07856987405"
       }
     }
   ]
