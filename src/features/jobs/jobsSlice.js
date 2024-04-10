@@ -18,13 +18,18 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
 });
 
 //post new job
-export const addNewJob = createAsyncThunk("jobs/addNewJob", async(body) => {
-  try {
+export const addNewJob = createAsyncThunk("jobs/addNewJob", async( body ) => {
     const response = await axios.post(apiUrl, body);
     return response.data;
-  } catch (error) {
-    return error.message
-  }
+})
+
+//delete job
+export const deleteJob = createAsyncThunk("jobs/deleteJob", async( body ) => {
+  const { id } = body
+  const response = await axios.delete(`${apiUrl}/${id}`)
+  //this needs to return the body so that I can grab the id and remove it from state
+  if(response.status === 200) return body
+  return `${response.state}: ${response.text}`
 })
 
 export const jobsSlice = createSlice({
@@ -38,19 +43,7 @@ export const jobsSlice = createSlice({
       })
       .addCase(fetchJobs.fulfilled, (state, action) => {
         state.status = "succeeded";
-        //add date to fetched jobs
-        // let min = 1;
         const jobs = action.payload
-        // const loadedJobs = jobs.map((job) => {
-        //   if(job.id.length === 1) {
-        //     job.date = sub(new Date(), { minutes: min++ }).toISOString()
-        //   } else {
-        //     job.date = new Date().toISOString()
-        //   }
-        //   return job
-        // })
-        // Add any fetched posts to the array
-        // console.log(jobs);
         state.jobs = [...jobs];
       })
       .addCase(fetchJobs.rejected, (state, action) => {
@@ -58,8 +51,20 @@ export const jobsSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addNewJob.fulfilled, (state, action) => {
-        // action.payload.date = new Date().toISOString() 
         state.jobs.push(action.payload)
+      })
+      .addCase(deleteJob.fulfilled, (state, action) => {
+        const { id } = action.payload;
+
+        const jobExists = state.jobs.find(job => job.id === id)
+
+        if(!jobExists){
+          console.log("Unable to delete job");
+          return
+        }
+        const filteredJobs = state.jobs.filter(job => job.id !== id)
+        state.jobs = [...filteredJobs]
+        
       })
   },
 });

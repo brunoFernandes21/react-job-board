@@ -3,10 +3,10 @@ import logo from "../assets/react.svg";
 const Navbar = () => {
 
   const linkClass = ({ isActive }) => {
-    return isActive ? "bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2" : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+    return isActive ? "bg-black text-white hover:border-black rounded-md px-3 py-2" : "text-white transition ease-in-out duration-400 hover:bg-black rounded-md px-3 py-2"
   }
   return (
-    <nav className="bg-blue-800 shadow-blue-500 shadow-md mb-1">
+    <nav className="bg-blue-800 bg-opacity-75 backdrop-blur-sm shadow-blue-500 shadow-md mb-1 sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 ">
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
@@ -16,8 +16,8 @@ const Navbar = () => {
                 React JobBoard
               </span>
             </NavLink>
-            <div className="md:ml-auto">
-              <div className="flex space-x-2">
+            <div className="md:ml-auto ">
+              <div className="flex space-x-2 gap-2">
                 <NavLink
                   to="/"
                   className={linkClass}
