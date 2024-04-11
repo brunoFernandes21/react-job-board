@@ -8,6 +8,7 @@ import AddNewJobPage from "./features/jobs/AddNewJobPage";
 import EditJobPage from "./features/jobs/EditJobPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
@@ -33,6 +34,7 @@ const App = () => {
         theme="dark"
         transition:Bounce
       />
+      <Footer/>
     </>
   );
 };

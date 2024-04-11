@@ -3,7 +3,7 @@ import logo from "../assets/react.svg";
 const Navbar = () => {
 
   const linkClass = ({ isActive }) => {
-    return isActive ? "underline hover:text-blue-200 text-white rounded-md px-3 py-2" : "text-white transition ease-in-out duration-400 hover:text-blue-200 hover:underline px-3 py-2"
+    return isActive ? "border hover:text-blue-200 text-white px-3 py-2 rounded-md" : "text-white transition ease-in-out duration-400 hover:text-blue-200 px-3 py-2"
   }
   return (
     <nav className="bg-blue-800 bg-opacity-75 md:bg-opacity-100 backdrop-blur-sm shadow-blue-500 shadow-md mb-1 sticky top-0 z-50">
