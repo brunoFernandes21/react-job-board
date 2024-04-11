@@ -79,7 +79,7 @@ const AddNewJobPage = () => {
           contactPhone: "",
         });
       } catch (error) {
-        console.error("Failed to save the post: ", error);
+        console.error("Failed to save the post: ", error.message);
       } finally {
         setAddRequestStatus("idle");
       }
