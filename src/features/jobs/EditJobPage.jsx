@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import { selectJobById, updateJob } from "./jobsSlice";
+import { useEffect, useState } from "react";
+import { selectJobById, updateJob, selectStatus, fetchJobs } from "./jobsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -10,6 +10,13 @@ const EditJobPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
+  const jobStatus = useSelector(selectStatus);
+
+  useEffect(() => {
+    if (jobStatus === "idle") {
+      dispatch(fetchJobs())
+    }
+}, [jobStatus, dispatch]);
 
   const [formData, setFormData] = useState({
     title: job.title,

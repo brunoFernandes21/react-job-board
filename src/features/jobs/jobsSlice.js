@@ -24,7 +24,6 @@ export const addNewJob = createAsyncThunk("jobs/addNewJob", async (body) => {
 //update job
 export const updateJob = createAsyncThunk("jobs/updateJob", async (body) => {
   const { id } = body;
-  console.log(body);
   const response = await axios.patch(`${apiUrl}/${id}`, body);
   return response.data;
 });
@@ -61,9 +60,7 @@ export const jobsSlice = createSlice({
       })
       .addCase(deleteJob.fulfilled, (state, action) => {
         const { id } = action.payload;
-
         const jobExists = state.jobs.find((job) => job.id === id);
-
         if (!jobExists) {
           console.log("Unable to delete job");
           return;
@@ -73,18 +70,17 @@ export const jobsSlice = createSlice({
       })
       .addCase(updateJob.fulfilled, (state, action) => {
         const updatedJob = action.payload;
-
-        //loop through jobs array in state, 
-        const jobsArray = state.jobs.map(( job ) => {
-          //if there is an job in array with same id as the the object in payload, 
+        //loop through jobs array in state,
+        const jobsArray = state.jobs.map((job) => {
+          //if there is an job in array with same id as the the object in payload,
           //assign it to the job in array
-          if(job.id === updatedJob.id) {
-            job = {...updatedJob}
+          if (job.id === updatedJob.id) {
+            job = { ...updatedJob };
           }
-          return job
-        })
+          return job;
+        });
         //update jobs array in state
-        state.jobs = jobsArray
+        state.jobs = jobsArray;
       });
   },
 });
