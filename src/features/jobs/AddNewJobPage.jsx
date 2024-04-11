@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewJob } from "./jobsSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify"
 
 const AddNewJobPage = () => {
   const [formData, setFormData] = useState({
@@ -63,6 +64,7 @@ const AddNewJobPage = () => {
       try {
         setAddRequestStatus("pending");
         await dispatch(addNewJob(newJob)).unwrap();
+        toast.success("Job Added Successfully")
         navigate("/");
         setFormData({
           title: "",

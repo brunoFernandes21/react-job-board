@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { sub } from "date-fns";
 
 
 const initialState = {
@@ -11,7 +10,7 @@ const initialState = {
 
 const apiUrl = "/api/jobs";
 
-//fetch posts
+//fetch jobs
 export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
   const response = await axios.get(apiUrl);
   return response.data;
@@ -66,12 +65,17 @@ export const jobsSlice = createSlice({
         state.jobs = [...filteredJobs]
         
       })
+      // .addCase(fetchJobById.fulfilled, (state, action) => {
+      //   // const { id } = action.payload
+      //   // console.log(action.payload);
+      //   // const job = state.jobs.filter(job => job.id === id)
+      // })
   },
 });
 
 export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
-export const selectJobById = (state, postId) =>
-  state.jobs.jobs.find((job) => job.id === postId);
+export const selectJobById = (state, jobId) =>
+  state.jobs.jobs.find((job) => job.id === jobId);
 export default jobsSlice.reducer;

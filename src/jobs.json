@@ -89,6 +89,21 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+      "id": "18a6",
+      "title": "Full Stack Senior React/Typescript Developer",
+      "type": "Full-Time",
+      "salary": "£125K - 150K",
+      "location": "London UK",
+      "description": "We are seeking a highly skilled Full Stack Senior React/TypeScript Developer to join our dynamic team. In this role, you will be responsible for designing and implementing user interfaces and backend systems using React and TypeScript. You will work closely with our product management and design teams to translate requirements into scalable, high-performance solutions. As a senior member of the team, you will also provide technical leadership, mentorship to junior developers, and contribute to architectural decisions.\n Key Responsibilities:\n\nDesign and develop robust, scalable, and maintainable web applications using React and TypeScript.\nCollaborate with product management and design teams to understand requirements and translate them into technical solutions.\nImplement responsive and accessible user interfaces that provide exceptional user experience across various devices and browsers.\nDevelop RESTful APIs and backend services using Node.js or other backend technologies.\nWrite clean, efficient, and well-documented code following best practices and coding standards.\nConduct code reviews, provide constructive feedback, and mentor junior developers to promote knowledge sharing and continuous improvement.\nWork closely with QA engineers to ensure the quality of deliverables through unit testing, integration testing, and end-to-end testing.\nTroubleshoot and debug complex issues to ensure the performance, reliability, and security of applications.\nStay updated with the latest technologies, trends, and best practices in web development and actively contribute to technical discussions and decision-making processes.\nCollaborate effectively with cross-functional teams in an Agile environment to deliver high-quality software solutions on time.\nRequirements:\n\nBachelor's degree in Computer Science, Engineering, or related field.\nProven experience (5+ years) developing web applications using React and TypeScript.\nStrong proficiency in JavaScript/TypeScript, HTML5, CSS3, and related frontend technologies.\nExperience building and consuming RESTful APIs and familiarity with backend technologies such as Node.js, Express.js, or similar frameworks.\nSolid understanding of software development principles, design patterns, and best practices.\nExperience with version control systems, preferably Git.\nExcellent communication and collaboration skills with a strong ability to work effectively in a team environment.\nAbility to prioritize tasks, manage time efficiently, and meet deadlines in a fast-paced environment.\nExperience with Agile methodologies such as Scrum or Kanban is a plus.\nContributions to open-source projects, technical blogs, or participation in developer communities is a bonus.",
+      "date": "2024-04-11T07:10:23.629Z",
+      "company": {
+        "name": "CodeCrafters Technologies",
+        "description": "At CodeCrafters Technologies, we're more than just software developers — we're creators, innovators, and problem solvers. We specialize in crafting bespoke digital solutions tailored to your needs, leveraging cutting-edge technologies to bring your ideas to life. Whether you're a startup looking to disrupt the market or an enterprise seeking to streamline operations, we're here to empower your journey with our expertise and dedication. Let's build the future together, one line of code at a time.",
+        "contactEmail": "info@codecrafters.tech",
+        "contactPhone": "04589678450"
+      }
     }
   ]
 }

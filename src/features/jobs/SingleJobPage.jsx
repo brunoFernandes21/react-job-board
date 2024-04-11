@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectJobById,
   selectStatus,
-  fetchJobs,
   deleteJob,
   selectError,
+  fetchJobs,
 } from "./jobsSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -14,30 +14,34 @@ import {
   FaExclamationTriangle,
   FaArrowCircleLeft,
   FaMapMarkerAlt,
+  FaEdit, FaTrashAlt
 } from "react-icons/fa";
+import { toast } from "react-toastify"
 
 const SingleJobPage = () => {
-  const { postId } = useParams();
-  const job = useSelector((state) => selectJobById(state, postId));
+  const { jobId } = useParams();
   const jobStatus = useSelector(selectStatus);
   const dispatch = useDispatch();
   const error = useSelector(selectError);
   const navigate = useNavigate()
   const [addRequestStatus, setAddRequestStatus] = useState("idle")
+  const job = useSelector((state) => selectJobById(state, jobId));
 
 
   useEffect(() => {
-    if (jobStatus === "idle") {
-      dispatch(fetchJobs());
-    }
+      if (jobStatus === "idle") {
+        dispatch(fetchJobs())
+      }
   }, [jobStatus, dispatch]);
 
+
   const handleDelete = async () => {
-    let text = "Are you sure you want to delete this post?"
-    if(confirm(text) === true) {
+    let text = "Are you sure you want to delete this job?"
+    if(confirm(text)) {
       try {
         setAddRequestStatus("pending")
         await dispatch(deleteJob({ id: job.id })).unwrap()
+        toast.success("Job Deleted Successfully")
         navigate("/")
       } catch (error) {
         console.error("Unable to delete job", error)
@@ -146,15 +150,17 @@ const SingleJobPage = () => {
                 <h3 className='text-xl font-bold mb-6'>Manage Job</h3>
                 <Link
                   to={`/edit-job/${job.id}`}
-                  className='bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                  className='flex items-center justify-center gap-2  bg-blue-500 hover:bg-blue-600 transition ease-in-out duration-300 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4'
                 >
-                  Edit Job
+                  <FaEdit/>
+                  <span>Edit Job</span>
                 </Link>
                 <button
                   onClick={handleDelete}
-                  className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                  className='flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white transition ease-in-out duration-300 font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4'
                 >
-                  Delete Job
+                  <FaTrashAlt/>
+                  <span>Delete Job</span>
                 </button>
               </div>
                 </section>
