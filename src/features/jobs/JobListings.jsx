@@ -9,6 +9,7 @@ import {
 } from "./jobsSlice";
 import { useEffect } from "react";
 import Spinner from "../../components/Spinner";
+import JobsFilter from "../../components/JobsFilter";
 
 const JobListings = ({ isHome = false }) => {
   const jobs = useSelector(selectAllJobs);
@@ -49,6 +50,7 @@ const JobListings = ({ isHome = false }) => {
         <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center dark:text-slate-100">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
+        <JobsFilter/>
         {content}
       </div>
     </section>
