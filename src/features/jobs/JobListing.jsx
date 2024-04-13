@@ -13,6 +13,7 @@ const JobListening = ({ job }) => {
     description = description.substring(0, 110) + "...";
   }
 
+
   return (
     <div className="bg-white rounded-xl transition-all ease-in-out duration-500 hover:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:shadow-sky-500 relative">
       <div className="p-4">
@@ -28,7 +29,7 @@ const JobListening = ({ job }) => {
           {showFullDescription ? "Show Less" : "Show More"}
         </button>
         <h3 className="text-sky-500 mb-2">{job.salary} / Year</h3>
-        <div className="border border-gray-100 mb-5"></div>
+        <div className="border border-slate-100 mb-5"></div>
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="text-orange-700 mb-3">
             <FaMapMarkerAlt className="inline text-lg mb-1 mr-1" />

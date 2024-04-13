@@ -17,13 +17,12 @@ const JobListings = ({ isHome = false }) => {
 
   const jobStatus = useSelector(selectStatus);
   const error = useSelector(selectError);
-  const currentLocation = useLocation();
 
   useEffect(() => {
     if (jobStatus === "idle") {
       dispatch(fetchJobs());
     }
-  }, [jobStatus, dispatch, currentLocation]);
+  }, [jobStatus, dispatch]);
 
   let content;
   if (jobStatus === "loading") {
@@ -44,14 +43,15 @@ const JobListings = ({ isHome = false }) => {
     content = (<div className="text-white text-center text-xl">{error}</div>);
   }
 
+
   return (
     <section className="bg-sky-50 px-4 py-10 dark:bg-slate-800">
       <div className=" lg:container m-auto">
         <h2 className="text-3xl font-bold text-sky-600 mb-6 text-center dark:text-slate-100">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
-        {/* <JobsFilter/> */}
-        {content}
+        {jobs.length === 0 && <p className="text-center text-xl dark:text-white">No jobs found!</p>}
+        {jobs.length > 0 && content}
       </div>
     </section>
   );

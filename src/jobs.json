@@ -3,11 +3,11 @@
     {
       "id": "1",
       "title": "Senior React Developer",
-      "type": "Full-Time",
-      "description": "We are seeking a talented Front-End Developer to join our team in London, UK. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
+      "type": "Part-time",
+      "description": "Seeking a Senior React Developer to lead the development of cutting-edge web applications. Leverage your extensive experience in React to architect scalable solutions and mentor junior developers. Collaborate closely with cross-functional teams to deliver high-quality software products. If you're a proactive leader passionate about pushing boundaries, join us.",
       "location": "London",
-      "salary": "£70K - £100K",
-      "date": "2024-04-09T21:28:42.298Z",
+      "salary": "£90K - 100K",
+      "date": "2024-04-13T18:56:53.483Z",
       "company": {
         "name": "SwiftMasters Solutions",
         "description": "SwiftMasters Solutions is a leading technology company specializing in web development and digital solutions. We pride ourselves on delivering high-quality products and services to our clients while fostering a collaborative and innovative work environment.",
@@ -20,9 +20,9 @@
       "title": "Front-End Engineer (React & Redux)",
       "type": "Hybrid",
       "location": "Cambridge",
-      "description": "Join our team as a Front-End Developer in Cambridge, UK. We are looking for a motivated individual with a passion for crafting beautiful and responsive web applications. Experience with UI/UX design principles and a strong attention to detail are highly desirable.",
+      "description": "Seeking a skilled Front-End Engineer proficient in React and Redux to enhance user interfaces and drive innovation. Collaborate with cross-functional teams to develop scalable, responsive web applications. If you're passionate about crafting exceptional user experiences and thrive in a dynamic environment, join us in shaping the future of technology.",
       "salary": "£70K - 80K",
-      "date": "2024-04-12T21:28:01.780Z",
+      "date": "2024-04-13T18:53:10.910Z",
       "company": {
         "name": "SmartLink",
         "description": "SmartLink  is a creative agency specializing in digital design and development. Our team is dedicated to pushing the boundaries of creativity and innovation to deliver exceptional results for our clients.",
@@ -32,12 +32,12 @@
     },
     {
       "id": "3",
-      "title": "React.js Dev",
+      "title": "Junior React Developer ",
       "type": "Remote",
       "location": "Leeds",
-      "description": "Are you passionate about front-end development? Join our team in vibrant Leeds West Yorkshire, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
-      "salary": "£90K - 100K",
-      "date": "2024-04-12T21:26:25.738Z",
+      "description": "Looking for a Junior React Developer to contribute to the development of dynamic web applications. Work closely with senior developers to gain hands-on experience in React development. Opportunity to learn and grow within a supportive team environment. If you're eager to kick-start your career in React, apply now!",
+      "salary": "Under $50K",
+      "date": "2024-04-13T18:58:39.912Z",
       "company": {
         "name": "CloudDream",
         "description": "CloudDream is a leading technology company specializing in digital solutions for businesses of all sizes. With a focus on innovation and customer satisfaction, we are committed to delivering cutting-edge products and services.",
@@ -48,11 +48,11 @@
     {
       "id": "4",
       "title": "React Front-End Developer",
-      "type": "Part-Time",
-      "description": "Join our team as a Part-Time Front-End Developer in beautiful Liverpool, UK. We are looking for a self-motivated individual with a passion for creating engaging user experiences. This position offers flexible hours and the opportunity to work remotely.",
+      "type": "Part-time",
+      "description": "Looking for a talented React Front-End Developer to create engaging user interfaces. Utilize your expertise in React to build responsive web applications, collaborating closely with design and backend teams. If you're passionate about delivering top-notch user experiences and thrive in a collaborative environment, we'd love to hear from you.",
       "location": "Liverpool",
       "salary": "£60K - 70K",
-      "date": "2024-04-12T21:27:05.202Z",
+      "date": "2024-04-13T19:21:57.552Z",
       "company": {
         "name": "CloudFlair",
         "description": "CloudFlair is a dynamic startup specializing in digital marketing and web development. We are committed to fostering a diverse and inclusive workplace where creativity and innovation thrive.",
@@ -63,11 +63,11 @@
     {
       "id": "5",
       "title": "Full Stack React Developer",
-      "type": "Full-Time",
+      "type": "Remote",
       "description": "Exciting opportunity for a Full-Time Front-End Developer in bustling Manchester, UK. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
       "location": "Manchester",
-      "salary": "£90K - £100K",
-      "date": "2024-04-09T19:28:42.298Z",
+      "salary": "£70K - 80K",
+      "date": "2024-04-13T18:59:49.738Z",
       "company": {
         "name": "Sprint Technologies",
         "description": "Sprint Technologies is a rapidly growing technology company specializing in e-commerce solutions. We offer a dynamic and collaborative work environment where employees are encouraged to think creatively and innovate.",
@@ -78,11 +78,11 @@
     {
       "id": "6",
       "title": "React Native Developer",
-      "type": "Full-Time",
+      "type": "Full-time",
       "description": "Join our team as a Front-End Developer in beautiful London, UK. We are looking for a skilled and enthusiastic individual to help us create innovative web solutions. Competitive salary and great benefits package available.",
       "location": "London",
       "salary": "£100K - 125K",
-      "date": "2024-04-12T21:25:05.528Z",
+      "date": "2024-04-13T19:22:26.210Z",
       "company": {
         "name": "Smart Solutions INC",
         "description": "Smart Solutions is a leading technology company specializing in software development and digital marketing. We are committed to providing our clients with cutting-edge solutions and our employees with a supportive and rewarding work environment.",
@@ -93,11 +93,11 @@
     {
       "id": "18a6",
       "title": "Full Stack Senior React/Typescript Developer",
-      "type": "Full-Time",
+      "type": "Full-time",
       "salary": "£125K - 150K",
-      "location": "London UK",
+      "location": "London",
       "description": "We are seeking a talented Full Stack  React/Typescript Developer to join our team in London, UK. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, Typescript, SQL with at least 5 years experience working with modern JavaScript frameworks ad SQL.",
-      "date": "2024-04-12T20:48:07.340Z",
+      "date": "2024-04-13T19:35:40.456Z",
       "company": {
         "name": "CodeCrafters Technologies",
         "description": "At CodeCrafters Technologies, we're more than just software developers — we're creators, innovators, and problem solvers. We specialize in crafting bespoke digital solutions tailored to your needs, leveraging cutting-edge technologies to bring your ideas to life. Whether you're a startup looking to disrupt the market or an enterprise seeking to streamline operations, we're here to empower your journey with our expertise and dedication. Let's build the future together, one line of code at a time.",

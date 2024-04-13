@@ -88,7 +88,7 @@ const AddNewJobPage = () => {
 
   return (
     <section className="bg-sky-50 dark:bg-slate-800">
-      <div className="container m-auto max-w-3xl py-24 px-5">
+      <div className="container m-auto max-w-3xl py-10 md:py-24 px-5">
         <div className="form__section relative bg-white text-slate-900 px-4 py-8 mb-4 dark:bg-slate-800 dark:text-white">
           <h3 className="text-xl font-bold">Post New Job</h3>
           <form onSubmit={handleSubmit} className="mt-8">
@@ -118,8 +118,8 @@ const AddNewJobPage = () => {
                   required
                 >
                   <option value="">Choose Job Type</option>
-                  <option value="Full-Time">Full-Time</option>
-                  <option value="Part-Time">Part-Time</option>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Part-time">Part-time</option>
                   <option value="Remote">Remote</option>
                   <option value="Hybrid">Hybrid</option>
                   <option value="Internship">Internship</option>

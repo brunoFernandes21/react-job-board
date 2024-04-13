@@ -5,14 +5,14 @@ const initialState = {
   jobs: [],
   status: "idle",
   error: null,
-  jobUpdated: false
 };
 
 const apiUrl = "/api/jobs";
 
 //fetch jobs
-export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
-  const response = await axios.get(apiUrl);
+export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (searchValue) => {
+  console.log(searchValue);
+  const response = await axios.get(apiUrl, {params: {type: searchValue}});
   return response.data;
 });
 
@@ -41,7 +41,15 @@ export const deleteJob = createAsyncThunk("jobs/deleteJob", async (body) => {
 export const jobsSlice = createSlice({
   name: "jobs",
   initialState,
-  reducers: {},
+  reducers: {
+    // jobSearch: (state, action) => {
+    //   const searchValue = action.payload;
+    //   const filteredJobs = state.jobs.filter((job) => {
+    //     return job.title.toLowerCase().includes(searchValue.toLowerCase());
+    //   });
+    //   state.jobs = filteredJobs;
+    // },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchJobs.pending, (state, action) => {
@@ -89,6 +97,7 @@ export const jobsSlice = createSlice({
 export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
+export const { jobSearch } = jobsSlice.actions;
 export const selectJobById = (state, jobId) =>
   state.jobs.jobs.find((job) => job.id === jobId);
 export default jobsSlice.reducer;
