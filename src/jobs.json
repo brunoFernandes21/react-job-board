@@ -4,13 +4,13 @@
       "id": "1",
       "title": "Senior React Developer",
       "type": "Full-Time",
-      "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
+      "description": "We are seeking a talented Front-End Developer to join our team in London, UK. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
       "location": "London",
       "salary": "£70K - £100K",
       "date": "2024-04-09T21:28:42.298Z",
       "company": {
-        "name": "NewTek Solutions",
-        "description": "NewTek Solutions is a leading technology company specializing in web development and digital solutions. We pride ourselves on delivering high-quality products and services to our clients while fostering a collaborative and innovative work environment.",
+        "name": "SwiftMasters Solutions",
+        "description": "SwiftMasters Solutions is a leading technology company specializing in web development and digital solutions. We pride ourselves on delivering high-quality products and services to our clients while fostering a collaborative and innovative work environment.",
         "contactEmail": "contact@teksolutions.com",
         "contactPhone": "555-555-5555"
       }
@@ -18,14 +18,14 @@
     {
       "id": "2",
       "title": "Front-End Engineer (React & Redux)",
-      "type": "Full-Time",
+      "type": "Hybrid",
       "location": "Cambridge",
-      "description": "Join our team as a Front-End Developer in sunny Miami, FL. We are looking for a motivated individual with a passion for crafting beautiful and responsive web applications. Experience with UI/UX design principles and a strong attention to detail are highly desirable.",
-      "salary": "£70K - £80K",
-      "date": "2024-04-09T21:18:42.298Z",
+      "description": "Join our team as a Front-End Developer in Cambridge, UK. We are looking for a motivated individual with a passion for crafting beautiful and responsive web applications. Experience with UI/UX design principles and a strong attention to detail are highly desirable.",
+      "salary": "£70K - 80K",
+      "date": "2024-04-12T21:28:01.780Z",
       "company": {
-        "name": "Veneer Solutions",
-        "description": "Veneer Solutions is a creative agency specializing in digital design and development. Our team is dedicated to pushing the boundaries of creativity and innovation to deliver exceptional results for our clients.",
+        "name": "SmartLink",
+        "description": "SmartLink  is a creative agency specializing in digital design and development. Our team is dedicated to pushing the boundaries of creativity and innovation to deliver exceptional results for our clients.",
         "contactEmail": "contact@loremipsum.com",
         "contactPhone": "555-555-5555"
       }
@@ -33,14 +33,14 @@
     {
       "id": "3",
       "title": "React.js Dev",
-      "type": "Full-Time",
+      "type": "Remote",
       "location": "Leeds",
-      "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
-      "salary": "£70K - £80K",
-      "date": "2024-04-09T21:08:42.298Z",
+      "description": "Are you passionate about front-end development? Join our team in vibrant Leeds West Yorkshire, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
+      "salary": "£90K - 100K",
+      "date": "2024-04-12T21:26:25.738Z",
       "company": {
-        "name": "Dolor Cloud",
-        "description": "Dolor Cloud is a leading technology company specializing in digital solutions for businesses of all sizes. With a focus on innovation and customer satisfaction, we are committed to delivering cutting-edge products and services.",
+        "name": "CloudDream",
+        "description": "CloudDream is a leading technology company specializing in digital solutions for businesses of all sizes. With a focus on innovation and customer satisfaction, we are committed to delivering cutting-edge products and services.",
         "contactEmail": "contact@dolorsitamet.com",
         "contactPhone": "555-555-5555"
       }
@@ -49,13 +49,13 @@
       "id": "4",
       "title": "React Front-End Developer",
       "type": "Part-Time",
-      "description": "Join our team as a Part-Time Front-End Developer in beautiful Pheonix, AZ. We are looking for a self-motivated individual with a passion for creating engaging user experiences. This position offers flexible hours and the opportunity to work remotely.",
+      "description": "Join our team as a Part-Time Front-End Developer in beautiful Liverpool, UK. We are looking for a self-motivated individual with a passion for creating engaging user experiences. This position offers flexible hours and the opportunity to work remotely.",
       "location": "Liverpool",
-      "salary": "£60K - £70K",
-      "date": "2024-04-09T20:28:42.298Z",
+      "salary": "£60K - 70K",
+      "date": "2024-04-12T21:27:05.202Z",
       "company": {
-        "name": "Alpha Elite",
-        "description": "Alpha Elite is a dynamic startup specializing in digital marketing and web development. We are committed to fostering a diverse and inclusive workplace where creativity and innovation thrive.",
+        "name": "CloudFlair",
+        "description": "CloudFlair is a dynamic startup specializing in digital marketing and web development. We are committed to fostering a diverse and inclusive workplace where creativity and innovation thrive.",
         "contactEmail": "contact@adipisicingelit.com",
         "contactPhone": "555-555-5555"
       }
@@ -64,13 +64,13 @@
       "id": "5",
       "title": "Full Stack React Developer",
       "type": "Full-Time",
-      "description": "Exciting opportunity for a Full-Time Front-End Developer in bustling Atlanta, GA. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
+      "description": "Exciting opportunity for a Full-Time Front-End Developer in bustling Manchester, UK. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
       "location": "Manchester",
       "salary": "£90K - £100K",
       "date": "2024-04-09T19:28:42.298Z",
       "company": {
-        "name": "Browning Technologies",
-        "description": "Browning Technologies is a rapidly growing technology company specializing in e-commerce solutions. We offer a dynamic and collaborative work environment where employees are encouraged to think creatively and innovate.",
+        "name": "Sprint Technologies",
+        "description": "Sprint Technologies is a rapidly growing technology company specializing in e-commerce solutions. We offer a dynamic and collaborative work environment where employees are encouraged to think creatively and innovate.",
         "contactEmail": "contact@consecteturadipisicing.com",
         "contactPhone": "555-555-5555"
       }
@@ -79,13 +79,13 @@
       "id": "6",
       "title": "React Native Developer",
       "type": "Full-Time",
-      "description": "Join our team as a Front-End Developer in beautiful Portland, OR. We are looking for a skilled and enthusiastic individual to help us create innovative web solutions. Competitive salary and great benefits package available.",
+      "description": "Join our team as a Front-End Developer in beautiful London, UK. We are looking for a skilled and enthusiastic individual to help us create innovative web solutions. Competitive salary and great benefits package available.",
       "location": "London",
-      "salary": "£100K - £110K",
-      "date": "2024-04-09T20:38:38.298Z",
+      "salary": "£100K - 125K",
+      "date": "2024-04-12T21:25:05.528Z",
       "company": {
-        "name": "Port Solutions INC",
-        "description": "Port Solutions is a leading technology company specializing in software development and digital marketing. We are committed to providing our clients with cutting-edge solutions and our employees with a supportive and rewarding work environment.",
+        "name": "Smart Solutions INC",
+        "description": "Smart Solutions is a leading technology company specializing in software development and digital marketing. We are committed to providing our clients with cutting-edge solutions and our employees with a supportive and rewarding work environment.",
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
@@ -96,13 +96,13 @@
       "type": "Full-Time",
       "salary": "£125K - 150K",
       "location": "London UK",
-      "description": "We are seeking a highly skilled Full Stack Senior React/TypeScript Developer to join our dynamic team. In this role, you will be responsible for designing and implementing user interfaces and backend systems using React and TypeScript. You will work closely with our product management and design teams to translate requirements into scalable, high-performance solutions. As a senior member of the team, you will also provide technical leadership, mentorship to junior developers, and contribute to architectural decisions.\n Key Responsibilities:\n\nDesign and develop robust, scalable, and maintainable web applications using React and TypeScript.\nCollaborate with product management and design teams to understand requirements and translate them into technical solutions.\nImplement responsive and accessible user interfaces that provide exceptional user experience across various devices and browsers.\nDevelop RESTful APIs and backend services using Node.js or other backend technologies.\nWrite clean, efficient, and well-documented code following best practices and coding standards.\nConduct code reviews, provide constructive feedback, and mentor junior developers to promote knowledge sharing and continuous improvement.\nWork closely with QA engineers to ensure the quality of deliverables through unit testing, integration testing, and end-to-end testing.\nTroubleshoot and debug complex issues to ensure the performance, reliability, and security of applications.\nStay updated with the latest technologies, trends, and best practices in web development and actively contribute to technical discussions and decision-making processes.\nCollaborate effectively with cross-functional teams in an Agile environment to deliver high-quality software solutions on time.\nRequirements:\n\nBachelor's degree in Computer Science, Engineering, or related field.\nProven experience (5+ years) developing web applications using React and TypeScript.\nStrong proficiency in JavaScript/TypeScript, HTML5, CSS3, and related frontend technologies.\nExperience building and consuming RESTful APIs and familiarity with backend technologies such as Node.js, Express.js, or similar frameworks.\nSolid understanding of software development principles, design patterns, and best practices.\nExperience with version control systems, preferably Git.\nExcellent communication and collaboration skills with a strong ability to work effectively in a team environment.\nAbility to prioritize tasks, manage time efficiently, and meet deadlines in a fast-paced environment.\nExperience with Agile methodologies such as Scrum or Kanban is a plus.\nContributions to open-source projects, technical blogs, or participation in developer communities is a bonus.",
-      "date": "2024-04-11T19:42:55.573Z",
+      "description": "We are seeking a talented Full Stack  React/Typescript Developer to join our team in London, UK. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, Typescript, SQL with at least 5 years experience working with modern JavaScript frameworks ad SQL.",
+      "date": "2024-04-12T20:48:07.340Z",
       "company": {
         "name": "CodeCrafters Technologies",
         "description": "At CodeCrafters Technologies, we're more than just software developers — we're creators, innovators, and problem solvers. We specialize in crafting bespoke digital solutions tailored to your needs, leveraging cutting-edge technologies to bring your ideas to life. Whether you're a startup looking to disrupt the market or an enterprise seeking to streamline operations, we're here to empower your journey with our expertise and dedication. Let's build the future together, one line of code at a time.",
         "contactEmail": "info@codecrafters.tech",
-        "contactPhone": "045858458777"
+        "contactPhone": "0458584587072"
       }
     }
   ]

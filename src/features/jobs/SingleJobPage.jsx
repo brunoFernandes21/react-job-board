@@ -66,7 +66,7 @@ const SingleJobPage = () => {
           </p>
           <Link
             to="/"
-            className="px-8 py-4 text-xl font-semibold rounded-xl bg-blue-600 text-white hover:bg-blue-700"
+            className="px-8 py-4 text-xl font-semibold rounded-xl bg-sky-600 text-white hover:bg-sky-700"
           >
             Back to home
           </Link>
@@ -85,7 +85,7 @@ const SingleJobPage = () => {
             <div className="container m-auto py-6 px-6">
               <Link
                 to="/jobs"
-                className="text-blue-500 hover:text-blue-600 flex items-center hover:underline"
+                className="text-sky-500 hover:text-sky-600 flex items-center hover:underline"
               >
                 <FaArrowCircleLeft className="mr-2" /> 
                 Back to Job Listings
@@ -93,7 +93,7 @@ const SingleJobPage = () => {
             </div>
           </section>
 
-          <section className="bg-blue-50">
+          <section className="bg-sky-50">
             <div className="container m-auto py-10 px-6">
               <div className="grid grid-cols-1 lg:grid-cols-[30%70%] w-full gap-6">
                 <main className="lg:order-2">
@@ -107,13 +107,13 @@ const SingleJobPage = () => {
                   </div>
 
                   <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                    <h3 className="text-blue-800 text-lg font-bold mb-6">
+                    <h3 className="text-sky-800 text-lg font-bold mb-6">
                       Job Description
                     </h3>
 
                     <p className="mb-4">{job.description}</p>
 
-                    <h3 className="text-indigo-800 text-lg font-bold mb-2">
+                    <h3 className="text-sky-800 text-lg font-bold mb-2">
                       Salary
                     </h3>
 
@@ -134,13 +134,13 @@ const SingleJobPage = () => {
 
                     <h3 className="text-xl">Contact Email:</h3>
 
-                    <p className="my-2 bg-blue-100 p-2 font-bold">
+                    <p className="my-2 bg-sky-100 p-2 font-bold">
                       {job.company.contactEmail}
                     </p>
 
                     <h3 className="text-xl">Contact Phone:</h3>
 
-                    <p className="my-2 bg-blue-100 p-2 font-bold">
+                    <p className="my-2 bg-sky-100 p-2 font-bold">
                       {" "}
                       {job.company.contactPhone}
                     </p>
@@ -150,7 +150,7 @@ const SingleJobPage = () => {
                 <h3 className='text-xl font-bold mb-6'>Manage Job</h3>
                 <Link
                   to={`/edit-job/${job.id}`}
-                  className='flex items-center justify-center gap-2  bg-blue-500 hover:bg-blue-600 transition ease-in-out duration-300 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4'
+                  className='flex items-center justify-center gap-2  bg-sky-500 hover:bg-sky-600 transition ease-in-out duration-300 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4'
                 >
                   <FaEdit/>
                   <span>Edit Job</span>

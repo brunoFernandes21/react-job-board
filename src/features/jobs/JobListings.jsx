@@ -45,12 +45,12 @@ const JobListings = ({ isHome = false }) => {
   }
 
   return (
-    <section className="bg-blue-50 px-4 py-10 dark:bg-slate-800">
+    <section className="bg-sky-50 px-4 py-10 dark:bg-slate-800">
       <div className=" lg:container m-auto">
-        <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center dark:text-slate-100">
+        <h2 className="text-3xl font-bold text-sky-600 mb-6 text-center dark:text-slate-100">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
-        <JobsFilter/>
+        {/* <JobsFilter/> */}
         {content}
       </div>
     </section>

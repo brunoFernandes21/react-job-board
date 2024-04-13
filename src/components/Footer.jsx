@@ -6,29 +6,76 @@ const Footer = () => {
     return new Date().getFullYear();
   };
   return (
-    <section className="bg-blue-950 text-white py-4 ">
-      <div className="grid md:grid-cols-3 items-center justify-between gap-4 mx-8 p-2">
-        <div className=" text-center p-2">
-          <p><strong>Contact Me</strong></p>
+    <section className="bg-sky-800 text-white py-4 ">
+      {/* <div className="grid md:grid-cols-3 items-center justify-between md:gap-4 p-2 border">
+        <div className="flex flex-col mx-auto">
+          <p>
+            <strong>Contact Me</strong>
+          </p>
           <p className="text-slate-400">brunoaf1523@gmail.com</p>
         </div>
-        <div className="text-center p-2">
-          <p className="text-slate-400"> <strong>Bruno Fernandes</strong> &copy; {getYear()} All Rights Reserved</p>
+        <div className="text-center">
+          <p className="text-slate-400">
+            {" "}
+            <strong>Bruno Fernandes</strong> &copy; {getYear()} All Rights
+            Reserved
+          </p>
         </div>
-        <div className="flex justify-center gap-4 p-2">
-          <Link to="https://www.linkedin.com/in/bruno-fernandes-879b0725a/" target="_blank" className="flex items-center justify-center gap-2">
-            <FaLinkedin className="text-4xl hover:text-slate-400 transition ease-in-out durantion-300"/>
+        <div className="flex justify-center gap-4">
+          <Link
+            to="https://www.linkedin.com/in/bruno-fernandes-879b0725a/"
+            target="_blank"
+            className="flex items-center justify-center gap-2"
+          >
+            <FaLinkedin className="text-3xl hover:text-slate-400 transition ease-in-out durantion-300" />
           </Link>
-          <Link to="https://github.com/brunoFernandes21" target="_blank" className="flex items-center justify-center gap-2">
-            <FaGithub className="text-4xl hover:text-slate-400 transition ease-in-out durantion-300"/>
+          <Link
+            to="https://github.com/brunoFernandes21"
+            target="_blank"
+            className="flex items-center justify-center gap-2"
+          >
+            <FaGithub className="text-3xl hover:text-slate-400 transition ease-in-out durantion-300" />
           </Link>
         </div>
-        {/* <div className="shadow-md bg-white text-blue-500 p-2 rounded-lg">
-          <Link to="https://github.com/brunoFernandes21" target="_blank" className="flex items-center justify-center gap-2">
-            <span>Check out my Github</span>
-            <FaGithub className="text-2xl hover:text-blue-300 transition ease-in-out durantion-300"/>
+      </div> */}
+
+      <div className="flex flex-col lg:flex-row items-center md:justify-center gap-2 md:gap-6 mx-4">
+        <div className="">
+          <p className="text-slate-400">
+            {" "}
+            <strong>Bruno Fernandes</strong> &copy; {getYear()} All Rights
+            Reserved
+          </p>
+        </div>
+        <Link
+          to="/jobs"
+          className="text-slate-400 hover:text-slate-300 hover:underline"
+        >
+          Browse Jobs
+        </Link>
+        <Link
+          to="/add-new-job"
+          className="text-slate-400 hover:text-slate-300 hover:underline"
+        >
+          Post Job
+        </Link>
+        <div>
+          <p className="text-slate-400">Contact me: brunoaf1523@gmail.com</p>
+        </div>
+        <div className="flex gap-4">
+          <Link
+            to="https://www.linkedin.com/in/bruno-fernandes-879b0725a/"
+            target="_blank"
+          >
+            <FaLinkedin className="text-3xl text-slate-400 hover:text-white transition ease-in-out durantion-300" />
           </Link>
-        </div> */}
+          <Link
+            to="https://github.com/brunoFernandes21"
+            target="_blank"
+          >
+            <FaGithub className="text-3xl text-slate-400 hover:text-white transition ease-in-out durantion-300" />
+          </Link>
+        </div>
       </div>
     </section>
   );

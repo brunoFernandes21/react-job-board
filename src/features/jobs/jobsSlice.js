@@ -5,6 +5,7 @@ const initialState = {
   jobs: [],
   status: "idle",
   error: null,
+  jobUpdated: false
 };
 
 const apiUrl = "/api/jobs";

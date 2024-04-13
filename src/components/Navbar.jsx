@@ -6,7 +6,7 @@ const Navbar = () => {
     return isActive ? "border hover:text-blue-200 text-white px-3 py-2 rounded-md" : "text-white transition ease-in-out duration-400 hover:text-blue-200 px-3 py-2"
   }
   return (
-    <nav className="bg-blue-800 bg-opacity-75 md:bg-opacity-100 backdrop-blur-sm shadow-blue-500 shadow-md mb-1 sticky top-0 z-50">
+    <nav className="bg-sky-800 bg-opacity-75 md:bg-opacity-100 backdrop-blur-sm shadow-sky-500 shadow-md mb-1 sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 ">
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
@@ -34,7 +34,7 @@ const Navbar = () => {
                   to="/add-new-job"
                   className={linkClass}
                 >
-                  Add Job
+                  Post Job
                 </NavLink>
               </div>
             </div>

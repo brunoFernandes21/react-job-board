@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewJob } from "./jobsSlice";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 const AddNewJobPage = () => {
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const AddNewJobPage = () => {
       try {
         setAddRequestStatus("pending");
         await dispatch(addNewJob(newJob)).unwrap();
-        toast.success("Job Added Successfully")
+        toast.success("Job Added Successfully");
         navigate("/");
         setFormData({
           title: "",
@@ -86,43 +86,87 @@ const AddNewJobPage = () => {
     }
   };
 
-
   return (
-    <section className="bg-blue-50">
-      <div className="container m-auto max-w-3xl py-24 px-5 md:px-0">
-        <div className="form__section relative bg-white text-slate-900 px-6 py-8 mb-4">
-          <h3 className="text-xl font-bold">Add a New Post</h3>
+    <section className="bg-sky-50 dark:bg-slate-800">
+      <div className="container m-auto max-w-3xl py-24 px-5">
+        <div className="form__section relative bg-white text-slate-900 px-4 py-8 mb-4 dark:bg-slate-800 dark:text-white">
+          <h3 className="text-xl font-bold">Post New Job</h3>
           <form onSubmit={handleSubmit} className="mt-8">
-            <div>
-              <label htmlFor="title">Job Title</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                placeholder="Please enter job title..."
-                required
-              />
+            <div className="lg:grid grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="title">Job Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  placeholder="Please enter job title..."
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="type">Job Type</label>
+                <select
+                  name="type"
+                  id="type"
+                  value={formData.type}
+                  onChange={handleChange}
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  required
+                >
+                  <option value="">Choose Job Type</option>
+                  <option value="Full-Time">Full-Time</option>
+                  <option value="Part-Time">Part-Time</option>
+                  <option value="Remote">Remote</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="Internship">Internship</option>
+                  <option value="Apprenticeship">Apprenticeship</option>
+                </select>
+              </div>
             </div>
 
-            <div>
-              <label htmlFor="type">Job Type</label>
-              <select
-                name="type"
-                id="type"
-                value={formData.type}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Choose Job Type</option>
-                <option value="Full-Time">Full-Time</option>
-                <option value="Part-Time">Part-Time</option>
-                <option value="Remote">Remote</option>
-                <option value="Hybrid">Hybrid</option>
-                <option value="Internship">Internship</option>
-                <option value="Apprenticeship">Apprenticeship</option>
-              </select>
+            <div className="lg:grid grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="salary">Salary</label>
+                <select
+                  name="salary"
+                  id="salary"
+                  value={formData.salary}
+                  onChange={handleChange}
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  required
+                >
+                  <option value="">Select Salary Range</option>
+                  <option value="Under $50K">Under $50K</option>
+                  <option value="$50K - 60K">£50K - £60K</option>
+                  <option value="£60K - 70K">£60K - £70K</option>
+                  <option value="£70K - 80K">£70K - £80K</option>
+                  <option value="£80K - 90K">£80K - £90K</option>
+                  <option value="£90K - 100K">£90K - £100K</option>
+                  <option value="£100K - 125K">£100K - £125K</option>
+                  <option value="£125K - 150K">£125K - £150K</option>
+                  <option value="£150K - 175K">£150K - £175K</option>
+                  <option value="£175K - 200K">£175K - £200K</option>
+                  <option value="Over £200K">Over £200K</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="location">Location</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  required
+                  placeholder="Please enter location here..."
+                />
+              </div>
             </div>
 
             <div>
@@ -132,48 +176,13 @@ const AddNewJobPage = () => {
                 id="description"
                 value={formData.description}
                 onChange={handleChange}
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                 placeholder="Please enter job descrition here..."
+                required
               ></textarea>
             </div>
 
-            <div>
-              <label htmlFor="salary">Salary</label>
-              <select
-                name="salary"
-                id="salary"
-                value={formData.salary}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select Salary Range</option>
-                <option value="Under $50K">Under $50K</option>
-                <option value="$50K - 60K">£50K - £60K</option>
-                <option value="£60K - 70K">£60K - £70K</option>
-                <option value="£70K - 80K">£70K - £80K</option>
-                <option value="£80K - 90K">£80K - £90K</option>
-                <option value="£90K - 100K">£90K - £100K</option>
-                <option value="£100K - 125K">£100K - £125K</option>
-                <option value="£125K - 150K">£125K - £150K</option>
-                <option value="£150K - 175K">£150K - £175K</option>
-                <option value="£175K - 200K">£175K - £200K</option>
-                <option value="Over £200K">Over £200K</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="location">Location</label>
-              <input
-                type="text"
-                id="location"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-                required
-                placeholder="Please enter location here..."
-              />
-            </div>
-
-            <h3 className="text-sxl mb-5">Company Info</h3>
+            <h3 className="text-sxl mb-5 font-bold">Company Info</h3>
             <div>
               <label htmlFor="companyName">Company Name</label>
               <input
@@ -182,6 +191,7 @@ const AddNewJobPage = () => {
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                 required
                 placeholder="Please company name here..."
               />
@@ -194,7 +204,9 @@ const AddNewJobPage = () => {
                 name="companyDescription"
                 value={formData.companyDescription}
                 onChange={handleChange}
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                 placeholder="Please company descrition here..."
+                required
               ></textarea>
             </div>
 
@@ -206,6 +218,7 @@ const AddNewJobPage = () => {
                 name="contactEmail"
                 value={formData.contactEmail}
                 onChange={handleChange}
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                 required
                 placeholder="Please enter company email here..."
               />
@@ -218,6 +231,7 @@ const AddNewJobPage = () => {
                 id="contactPhone"
                 name="contactPhone"
                 value={formData.contactPhone}
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                 onChange={handleChange}
                 required
                 placeholder="Please company phone number here..."
@@ -227,10 +241,10 @@ const AddNewJobPage = () => {
             <button
               disabled={!formIsValid}
               className={`w-full ${
-                formIsValid ? "text-white bg-blue-600" : "bg-gray-300"
+                formIsValid ? "text-white bg-sky-600" : "bg-gray-300"
               }`}
             >
-              Add Job
+              Post Job
             </button>
           </form>
         </div>
@@ -240,4 +254,3 @@ const AddNewJobPage = () => {
 };
 
 export default AddNewJobPage;
-

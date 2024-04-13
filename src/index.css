@@ -19,9 +19,9 @@ label,
 input {
   display: block;
 }
-label {
+/* label {
   font-weight: 900;
-}
+} */
 input,
 textarea,
 select {
@@ -29,11 +29,15 @@ select {
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid rgb(224, 224, 224);
+  border: 1px solid rgb(183, 183, 183);
   background-color: #fff;
   border-radius: 5px;
   box-sizing: border-box;
   color: black;
+}
+
+select {
+  padding: 12px;
 }
 
 .form__section button {

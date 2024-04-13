@@ -86,7 +86,7 @@ const EditJobPage = () => {
   };
 
   return (
-    <section className="bg-blue-50">
+    <section className="bg-sky-50">
       <div className="container m-auto max-w-3xl py-24 px-5 md:px-0">
         <div className="form__section relative bg-white text-slate-900 px-6 py-8 mb-4">
           <h3 className="text-xl font-bold">Add a New Post</h3>
@@ -225,7 +225,7 @@ const EditJobPage = () => {
             <button
               disabled={!formIsValid}
               className={`w-full ${
-                formIsValid ? "text-white bg-blue-600" : "bg-gray-300"
+                formIsValid ? "text-white bg-sky-600" : "bg-gray-300"
               }`}
             >
               Update Job
