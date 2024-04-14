@@ -20,10 +20,12 @@ export const fetchJobs = createAsyncThunk("jobs/filterJobs", async(searchValue) 
   } else if(location.includes(searchValue)) {
     const response = await axios.get(apiUrl, {params: {location: searchValue}, });
     return response.data;
-  } else {
+  } else if(searchValue === "all") {
     const response = await axios.get(apiUrl);
     return response.data;
   }
+  const response = await axios.get(apiUrl);
+    return response.data;
 })
 
 //post new job
@@ -51,15 +53,7 @@ export const deleteJob = createAsyncThunk("jobs/deleteJob", async (body) => {
 export const jobsSlice = createSlice({
   name: "jobs",
   initialState,
-  reducers: {
-    // jobSearch: (state, action) => {
-    //   const searchValue = action.payload;
-    //   const filteredJobs = state.jobs.filter((job) => {
-    //     return job.title.toLowerCase().includes(searchValue.toLowerCase());
-    //   });
-    //   state.jobs = filteredJobs;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchJobs.pending, (state, action) => {

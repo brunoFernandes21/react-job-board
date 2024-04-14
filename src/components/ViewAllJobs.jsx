@@ -8,21 +8,6 @@ const ViewAllJobs = () => {
   const [addRequestStatus, setAddRequestStatus] = useState("idle")
   const dispatch = useDispatch()
   const jobStatus = useSelector(selectStatus);
-  
-  
-  // useEffect(() => {
-  //   if (jobStatus === "idle") {
-  //     dispatch(fetchJobs())
-  //   }
-    
-  // }, [jobStatus, dispatch])
-
-  // const loadJobs = async () => {
-  //   if (jobStatus === "idle") {
-  //     dispatch(fetchJobs())
-  //   }
-  //   setAddRequestStatus("idle")
-  // }
 
     return (
       <section className="py-10 dark:bg-slate-800">
@@ -32,7 +17,7 @@ const ViewAllJobs = () => {
             // onClick={loadJobs}
             className="block bg-black text-white text-center py-4 px-6 rounded-xl transition-all ease-in-out duration-300 hover:bg-gray-700 dark:bg-white dark:hover:bg-sky-500 dark:text-slate-900 dark:hover:text-white"
           >
-            View All Jobs
+            View More Jobs
           </Link>}
         </div>
       </section>

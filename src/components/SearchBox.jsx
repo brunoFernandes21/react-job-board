@@ -1,11 +1,12 @@
 import { FaSearch } from "react-icons/fa";
-import { fetchJobs } from "../features/jobs/jobsSlice";
-import { useDispatch } from "react-redux";
+import { fetchJobs, selectAllJobs } from "../features/jobs/jobsSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 const SearchBox = () => {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
+  const jobs = useSelector(selectAllJobs);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -14,11 +15,13 @@ const SearchBox = () => {
       setSearch("");
     }
   };
-  // const handleChange = (event) => {
-  //     const { value } = event.target
-  //     setSearch(value)
-  //     dispatch(jobSearch(value))
-  // }
+  //   const handleChange = (event) => {
+  //       const { value } = event.target
+  //       if (search) {
+  //       dispatch(fetchJobs(search));
+  //       setSearch("");
+  //     }
+  //   }
 
   return (
     <>
@@ -31,7 +34,7 @@ const SearchBox = () => {
             type="search"
             id="default-search"
             className=" p-4 ps-10 text-sm text-slate-500 border border-slate-300 rounded-lg bg-blue-50  dark:border-slate-600 dark:placeholder-gray-400 dark:focus:ring-sky-500 dark:focus:border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-            placeholder="Job type, location"
+            placeholder={`Job type, location or keyword "All"`}
             required
             value={search}
             onChange={(event) => setSearch(event.target.value)}
