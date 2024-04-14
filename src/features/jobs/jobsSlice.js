@@ -9,12 +9,22 @@ const initialState = {
 
 const apiUrl = "/api/jobs";
 
-//fetch jobs
-export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (searchValue) => {
-  console.log(searchValue);
-  const response = await axios.get(apiUrl, {params: {type: searchValue}});
-  return response.data;
-});
+//fetch Filtered Jobs based on search value
+export const fetchJobs = createAsyncThunk("jobs/filterJobs", async(searchValue) => {
+  const type = ["Full-time", "Part-time", "Remote", "Hybrid", "Internship", "Apprenticeship"]
+  const location = ["London", "Leeds", "Manchester", "Liverpool", "Cambridge"]
+   //return jobs based on search value
+   if(type.includes(searchValue)) {
+    const response = await axios.get(apiUrl, {params: {type: searchValue}, });
+    return response.data;
+  } else if(location.includes(searchValue)) {
+    const response = await axios.get(apiUrl, {params: {location: searchValue}, });
+    return response.data;
+  } else {
+    const response = await axios.get(apiUrl);
+    return response.data;
+  }
+})
 
 //post new job
 export const addNewJob = createAsyncThunk("jobs/addNewJob", async (body) => {
