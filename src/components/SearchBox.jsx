@@ -1,19 +1,21 @@
 import { FaSearch } from "react-icons/fa";
-import { fetchJobs, selectAllJobs } from "../features/jobs/jobsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { fetchJobs,  } from "../features/jobs/jobsSlice";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const SearchBox = () => {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
-  const jobs = useSelector(selectAllJobs);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (search) {
       dispatch(fetchJobs(search));
       setSearch("");
-    }
+    } 
+    console.log(search);
+      // toast.warning("Enter a job type or location to start a search");
   };
   //   const handleChange = (event) => {
   //       const { value } = event.target
@@ -33,7 +35,7 @@ const SearchBox = () => {
           <input
             type="search"
             id="default-search"
-            className=" p-4 ps-10 text-sm text-slate-500 border border-slate-300 rounded-lg bg-blue-50  dark:border-slate-600 dark:placeholder-gray-400 dark:focus:ring-sky-500 dark:focus:border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+            className=" p-4 ps-10 text-sm text-slate-500 border border-slate-300 rounded-lg bg-sky-50  dark:border-slate-600 dark:placeholder-gray-400 dark:focus:ring-sky-500 dark:focus:border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
             placeholder={`Job type, location or keyword "All"`}
             required
             value={search}
@@ -41,7 +43,7 @@ const SearchBox = () => {
           />
           <button
             type="submit"
-            className="text-white absolute right-2 bottom-[5px] bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm px-4 py-3 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+            className="text-white absolute right-2 bottom-[5px] bg-sky-700 hover:bg-sky-800 focus:ring-2 focus:outline-none focus:ring-sky-400 font-semibold rounded-lg text-sm px-4 py-3 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-400"
           >
             Find jobs
           </button>
