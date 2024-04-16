@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   jobs: [],
-  searchKeywordsArray: ["Full-time", "Part-time", "Remote", "Internship", "React", "Front-end", "Back-end", "Full-stack" ,"London", "Manchester", "Leeds", "Liverpool"],
+  searchKeywordsArray: ["Full-time", "Part-time", "Hybrid", "Remote", "Internship", "React", "Front-end", "Back-end", "Full-stack" ,"London", "Manchester", "Leeds", "Liverpool"],
   status: "idle",
   error: null,
 };

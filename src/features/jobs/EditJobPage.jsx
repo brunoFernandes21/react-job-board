@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { selectJobById, updateJob, selectStatus, fetchJobs } from "./jobsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const EditJobPage = () => {
@@ -224,12 +224,13 @@ const EditJobPage = () => {
 
             <button
               disabled={!formIsValid}
-              className={`w-full ${
+              className={` form__btn w-full rounded-full ${
                 formIsValid ? "text-white bg-sky-600" : "bg-gray-300"
               }`}
             >
               Update Job
             </button>
+            <Link to={`/jobs/${job.id}`} className="form__btn mt-2 text-white text-center font-bold block bg-red-500 ">Cancel</Link>
           </form>
         </div>
       </div>

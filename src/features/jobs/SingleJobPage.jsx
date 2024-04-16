@@ -14,43 +14,43 @@ import {
   FaExclamationTriangle,
   FaArrowCircleLeft,
   FaMapMarkerAlt,
-  FaEdit, FaTrashAlt
+  FaEdit,
+  FaTrashAlt,
 } from "react-icons/fa";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 const SingleJobPage = () => {
   const { jobId } = useParams();
   const jobStatus = useSelector(selectStatus);
   const dispatch = useDispatch();
   const error = useSelector(selectError);
-  const navigate = useNavigate()
-  const [addRequestStatus, setAddRequestStatus] = useState("idle")
+  const navigate = useNavigate();
+  const [addRequestStatus, setAddRequestStatus] = useState("idle");
   const job = useSelector((state) => selectJobById(state, jobId));
 
-
   useEffect(() => {
-      if (jobStatus === "idle") {
-        dispatch(fetchJobs())
-      }
+    if (jobStatus === "idle") {
+      dispatch(fetchJobs());
+    }
   }, [jobStatus, dispatch]);
 
 
   const handleDelete = async () => {
-    let text = "Are you sure you want to delete this job?"
-    if(confirm(text)) {
+    let text = "Are you sure you want to delete this job?";
+    if (confirm(text)) {
       try {
-        setAddRequestStatus("pending")
-        await dispatch(deleteJob({ id: job.id })).unwrap()
-        toast.success("Job Deleted Successfully")
-        navigate("/")
+        setAddRequestStatus("pending");
+        await dispatch(deleteJob({ id: job.id })).unwrap();
+        toast.success("Job Deleted Successfully");
+        navigate("/");
       } catch (error) {
-        console.error("Unable to delete job", error)
+        console.error("Unable to delete job", error);
       } finally {
-        setAddRequestStatus("idle")
+        setAddRequestStatus("idle");
       }
     }
-    return
-  }
+    return;
+  };
 
   if (!job) {
     return (
@@ -87,7 +87,7 @@ const SingleJobPage = () => {
                 to="/jobs"
                 className="text-sky-500 hover:text-sky-600 flex items-center hover:underline"
               >
-                <FaArrowCircleLeft className="mr-2" /> 
+                <FaArrowCircleLeft className="mr-2" />
                 Back to Job Listings
               </Link>
             </div>
@@ -146,23 +146,23 @@ const SingleJobPage = () => {
                     </p>
                   </div>
 
-                  <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
-                <h3 className='text-xl font-bold mb-6'>Manage Job</h3>
-                <Link
-                  to={`/edit-job/${job.id}`}
-                  className='flex items-center justify-center gap-2  bg-sky-500 hover:bg-sky-600 transition ease-in-out duration-300 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4'
-                >
-                  <FaEdit/>
-                  <span>Edit Job</span>
-                </Link>
-                <button
-                  onClick={handleDelete}
-                  className='flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white transition ease-in-out duration-300 font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4'
-                >
-                  <FaTrashAlt/>
-                  <span>Delete Job</span>
-                </button>
-              </div>
+                  <div className="bg-white p-6 rounded-lg shadow-md mt-6">
+                    <h3 className="text-xl font-bold mb-6">Manage Job</h3>
+                    <Link
+                      to={`/edit-job/${job.id}`}
+                      className="flex items-center justify-center gap-2  bg-sky-500 hover:bg-sky-600 transition ease-in-out duration-300 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4"
+                    >
+                      <FaEdit />
+                      <span>Edit Job</span>
+                    </Link>
+                    <button
+                      onClick={handleDelete}
+                      className="flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white transition ease-in-out duration-300 font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4"
+                    >
+                      <FaTrashAlt />
+                      <span>Delete Job</span>
+                    </button>
+                  </div>
                 </section>
               </div>
             </div>
