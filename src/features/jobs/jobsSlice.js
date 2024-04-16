@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   jobs: [],
+  searchKeywordsArray: ["Full-time", "Part-time", "Remote", "Internship", "React", "Front-end", "Back-end", "Full-stack" ,"London", "Manchester", "Leeds", "Liverpool"],
   status: "idle",
   error: null,
 };
@@ -20,12 +21,13 @@ export const fetchJobs = createAsyncThunk("jobs/filterJobs", async(searchValue) 
   } else if(location.includes(searchValue)) {
     const response = await axios.get(apiUrl, {params: {location: searchValue}, });
     return response.data;
-  } else if(searchValue === "all") {
+  } else if(!type.includes(searchValue) && !location.includes(searchValue)){
+    const response = await axios.get(apiUrl, {params: {location: searchValue}, });
+    return response.data;
+  }else {
     const response = await axios.get(apiUrl);
     return response.data;
   }
-  const response = await axios.get(apiUrl);
-    return response.data;
 })
 
 //post new job
@@ -101,6 +103,7 @@ export const jobsSlice = createSlice({
 export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
+export const searchKeywords = (state) => state.jobs.searchKeywordsArray
 export const { jobSearch } = jobsSlice.actions;
 export const selectJobById = (state, jobId) =>
   state.jobs.jobs.find((job) => job.id === jobId);

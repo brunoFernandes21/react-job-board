@@ -8,13 +8,8 @@ const Footer = () => {
   return (
     <section className="bg-sky-800 text-white py-8 bottom-0 w-full">
       <div className="flex flex-col lg:flex-row items-center md:justify-between gap-2 md:gap-6 md:mx-20">
-        <div className="">
-          <p className="text-slate-400">
-            {" "}
-            <strong>React JobBoard</strong> &copy; {getYear()} All Rights
-            Reserved
-          </p>
-        </div>
+        
+
         <div className="">
           <Link
             to="/jobs"
@@ -30,6 +25,14 @@ const Footer = () => {
           </Link>
         </div>
 
+        <div className="-order-1">
+          <p className="text-slate-400">
+            {" "}
+            <strong>React JobBoard</strong> &copy; {getYear()} All Rights
+            Reserved
+          </p>
+        </div>
+        
         <div className="flex gap-4 items-center">
           <div>
             <p className="text-slate-400">Contact me: brunoaf1523@gmail.com</p>
