@@ -11,7 +11,7 @@ const JobsFilter = ({ search, toggleKeyWordList }) => {
 
   const keyworkList = filteredKeywords.map((item) => {
     return (
-      <ul key={item} className="p-4 border-b hover:bg-slate-100 rounded-md ">
+      <ul key={item} className="p-4 border-b hover:bg-slate-100 hover:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:shadow-sky-500 rounded-md ">
         <li
           className="flex items-center gap-4 cursor-pointer"
           onClick={() => toggleKeyWordList(item)}
@@ -24,7 +24,7 @@ const JobsFilter = ({ search, toggleKeyWordList }) => {
   });
 
   return (
-    <section className=" w-[350px] bg-white rounded-md -mt-5 -ml-24 ">
+    <section className=" z-10 w-[350px] bg-white rounded-md -mt-3 -ml-24 shadow-xl">
       <div className="">{keyworkList}</div>
     </section>
     // <section className="mb-6 flex items-center gap-4">
