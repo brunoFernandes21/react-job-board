@@ -7,9 +7,8 @@ const Footer = () => {
   };
   return (
     <section className="bg-sky-800 text-white py-8 bottom-0 w-full">
-      <div className="flex flex-col lg:flex-row items-center md:justify-between gap-2 md:gap-6 md:mx-20">
+      <div className="flex flex-col lg:flex-row items-center md:justify-between gap-2 md:mx-20">
         
-
         <div className="">
           <Link
             to="/jobs"

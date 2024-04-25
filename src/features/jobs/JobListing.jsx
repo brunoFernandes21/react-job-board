@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
 import TimeAgo from "./TimeAgo";
+import { selectJobUpdatedStatus } from "../jobs/jobsSlice"
+import { useSelector } from "react-redux";
 
-const JobListening = ({ job }) => {
+const JobListing = ({ job }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
-  
+  const jobUpdated = useSelector(selectJobUpdatedStatus)
 
   let description = job.description;
 
@@ -20,15 +22,15 @@ const JobListening = ({ job }) => {
         <div className="mb-6">
           <div className="text-gray-600 my-2">{job.type}</div>
           <h3 className="text-xl text-black font-bold">{job.title}</h3>
-          <div>
-            <span className="flex gap-2 text-gray-600 my-2">posted<TimeAgo timestamp={job.date}/> </span>
-          </div>
         </div>
         <div className="mb-5 text-black">{description}</div>
         <button onClick={() => setShowFullDescription((prevState) => !prevState)} className="text-sky-500 mb-5 hover:text-sky-600">
           {showFullDescription ? "Show Less" : "Show More"}
         </button>
         <h3 className="text-sky-500 mb-2">{job.salary} / Year</h3>
+        <div>
+            <span className="flex gap-2 text-gray-500 my-2">Posted<TimeAgo timestamp={job.date}/> </span>
+          </div>
         <div className="border border-slate-100 mb-5"></div>
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="text-orange-700 mb-3">
@@ -47,4 +49,4 @@ const JobListening = ({ job }) => {
   );
 };
 
-export default JobListening;
+export default JobListing;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectJobById,
   selectStatus,
-  deleteJob,
+  deleteJobFromFirestore,
   selectError,
   fetchJobs,
 } from "./jobsSlice";
@@ -40,7 +40,7 @@ const SingleJobPage = () => {
     if (confirm(text)) {
       try {
         setAddRequestStatus("pending");
-        await dispatch(deleteJob({ id: job.id })).unwrap();
+        await dispatch(deleteJobFromFirestore({ id: job.id })).unwrap();
         toast.success("Job Deleted Successfully");
         navigate("/");
       } catch (error) {

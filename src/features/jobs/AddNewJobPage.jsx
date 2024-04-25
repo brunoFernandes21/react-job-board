@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNewJob } from "./jobsSlice";
+import { addNewJobToState, addJobToFirestore } from "./jobsSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { v4 as uuidv4 } from 'uuid';
 const AddNewJobPage = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -47,6 +47,7 @@ const AddNewJobPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const newJob = {
+      id: uuidv4(),
       title: formData.title,
       type: formData.type,
       salary: formData.salary,
@@ -63,7 +64,8 @@ const AddNewJobPage = () => {
     if (formIsValid) {
       try {
         setAddRequestStatus("pending");
-        await dispatch(addNewJob(newJob)).unwrap();
+        dispatch(addNewJobToState(newJob));
+        dispatch(addJobToFirestore(newJob));
         toast.success("Job Added Successfully");
         navigate("/");
         setFormData({

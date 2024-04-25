@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { selectJobById, updateJob, selectStatus, fetchJobs } from "./jobsSlice";
+import { selectJobById, updatedJobInFirestore, selectStatus, fetchJobs } from "./jobsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -40,19 +40,13 @@ const EditJobPage = () => {
       };
     });
   };
-
-  const formIsValid =
-    [
-      formData.title,
-      formData.type,
-      formData.description,
-      formData.location,
-      formData.salary,
-      formData.companyName,
-      formData.companyDescription,
-      formData.contactEmail,
-      formData.contactPhone,
-    ].every(Boolean) && addRequestStatus === "idle";
+  const formIsValid = formData.title !== job.title || formData.type !== job.type || formData.description !== job.description ||
+  formData.location !== job.location ||
+  formData.salary !== job.salary ||
+  formData.companyName !== job.company.name ||
+  formData.companyDescription !== job.company.description ||
+  formData.contactEmail !== job.company.contactEmail ||
+  formData.contactPhone !== job.company.contactPhone && addRequestStatus === "idle";
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -74,7 +68,7 @@ const EditJobPage = () => {
     if (formIsValid) {
       try {
         setAddRequestStatus("pending");
-        dispatch(updateJob(updatedJob)).unwrap();
+        dispatch(updatedJobInFirestore(updatedJob)).unwrap();
         toast.success("Job Updated Successfully");
         navigate(`/jobs/${job.id}`);
       } catch (error) {
@@ -82,14 +76,15 @@ const EditJobPage = () => {
       } finally {
         setAddRequestStatus("idle");
       }
-    }
+    } 
   };
+
 
   return (
     <section className="bg-sky-50">
       <div className="container m-auto max-w-3xl py-24 px-5 md:px-0">
         <div className="form__section relative bg-white text-slate-900 px-6 py-8 mb-4">
-          <h3 className="text-xl font-bold">Add a New Post</h3>
+          <h3 className="text-xl font-bold">Update Job</h3>
           <form onSubmit={handleUpdate} className="mt-8">
             <div>
               <label htmlFor="title">Job Title</label>

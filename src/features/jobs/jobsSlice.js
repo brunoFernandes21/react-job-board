@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { db } from "../../firebase/firebase";
 
 const initialState = {
   jobs: [],
@@ -10,10 +12,46 @@ const initialState = {
 
 const apiUrl = "/api/jobs";
 
-//fetch Filtered Jobs based on search value
+// CRUP OPERATIONS FOR FIREBASE FIRESTORE 
+
+export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async() => {
+  const querySnapshot = await getDocs(collection(db, "jobs"))
+  const data = []
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    data.push(doc.data());
+  });
+  return data;
+})
+
+export const addJobToFirestore = createAsyncThunk("jobs/addJobToFirestore", async(body) => {
+
+  try {
+    await addDoc(collection(db, "jobs"), body)
+    fetchJobs()
+  } catch (error) {
+    return error
+  }
+})
+
+export const updatedJobInFirestore = createAsyncThunk("jobs/updatedJobInFirestore", async(body) => {
+  
+})
+
+
+export const deleteJobFromFirestore = createAsyncThunk("jobs/deleteJobFromFirestore", async(body) => {
+
+
+})
+
+/*
+CRUD OPERATIONS FOR THE JSON MOCK SERVER
+
+// fetch Filtered Jobs based on search value
 export const fetchJobs = createAsyncThunk("jobs/filterJobs", async(searchValue) => {
   const type = ["Full-time", "Part-time", "Remote", "Hybrid", "Internship", "Apprenticeship"]
   const location = ["London", "Leeds", "Manchester", "Liverpool", "Cambridge"]
+ 
    //return jobs based on search value
    if(type.includes(searchValue)) {
     const response = await axios.get(apiUrl, {params: {type: searchValue}, });
@@ -30,20 +68,21 @@ export const fetchJobs = createAsyncThunk("jobs/filterJobs", async(searchValue) 
   }
 })
 
-//post new job
+// post new job
 export const addNewJob = createAsyncThunk("jobs/addNewJob", async (body) => {
   const response = await axios.post(apiUrl, body);
   return response.data;
+  
 });
 
-//update job
+// update job
 export const updateJob = createAsyncThunk("jobs/updateJob", async (body) => {
   const { id } = body;
   const response = await axios.patch(`${apiUrl}/${id}`, body);
   return response.data;
 });
 
-//delete job
+// delete job
 export const deleteJob = createAsyncThunk("jobs/deleteJob", async (body) => {
   const { id } = body;
   const response = await axios.delete(`${apiUrl}/${id}`);
@@ -52,10 +91,22 @@ export const deleteJob = createAsyncThunk("jobs/deleteJob", async (body) => {
   return `${response.state}: ${response.text}`;
 });
 
+*/
+
 export const jobsSlice = createSlice({
   name: "jobs",
   initialState,
-  reducers: {},
+  reducers: {
+    addNewJobToState: (state, action) => {
+      state.jobs.push(action.payload)
+    },
+    updateJobInState: (state, action) => {
+
+    },
+    deleteJobFromState: (state, action) => {
+
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchJobs.pending, (state, action) => {
@@ -70,6 +121,7 @@ export const jobsSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       })
+      /*
       .addCase(addNewJob.fulfilled, (state, action) => {
         state.jobs.push(action.payload);
       })
@@ -97,14 +149,16 @@ export const jobsSlice = createSlice({
         //update jobs array in state
         state.jobs = jobsArray;
       });
+      */
   },
 });
 
 export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
+export const selectJobUpdatedStatus = (state) => state.jobs.jobUpdatedStatus
+export const { addNewJobToState } = jobsSlice.actions
 export const searchKeywords = (state) => state.jobs.searchKeywordsArray
-export const { jobSearch } = jobsSlice.actions;
 export const selectJobById = (state, jobId) =>
   state.jobs.jobs.find((job) => job.id === jobId);
 export default jobsSlice.reducer;
