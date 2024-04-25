@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore"; 
 import { db } from "../../firebase/firebase";
 
 const initialState = {
@@ -14,6 +14,7 @@ const apiUrl = "/api/jobs";
 
 // CRUP OPERATIONS FOR FIREBASE FIRESTORE 
 
+//Fetch all docs from jobs collection
 export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async() => {
   const querySnapshot = await getDocs(collection(db, "jobs"))
   const data = []
@@ -24,11 +25,24 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async() => {
   return data;
 })
 
-export const addJobToFirestore = createAsyncThunk("jobs/addJobToFirestore", async(body) => {
+//fetch single document from jobs collection
+export const fetchSingleJob = createAsyncThunk("jobs/fetchSingleJob", async(state, id) => {
+  const docRef = doc(db, "jobs", id)
+  const docSnap = await getDoc(docRef)
 
+  if(docSnap.exists()) {
+    state.jobs.push(docSnap.data())
+  } else {
+    console.log("No such document!")
+  }
+
+})
+
+export const addJobToFirestore = createAsyncThunk("jobs/addJobToFirestore", async(body) => {
+  const { id } = body
   try {
     await addDoc(collection(db, "jobs"), body)
-    fetchJobs()
+    fetchSingleJob(id)
   } catch (error) {
     return error
   }
