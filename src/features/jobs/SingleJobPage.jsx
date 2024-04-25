@@ -4,6 +4,7 @@ import {
   selectJobById,
   selectStatus,
   deleteJobFromFirestore,
+  deleteJobFromState,
   selectError,
   fetchJobs,
 } from "./jobsSlice";
@@ -40,7 +41,8 @@ const SingleJobPage = () => {
     if (confirm(text)) {
       try {
         setAddRequestStatus("pending");
-        await dispatch(deleteJobFromFirestore({ id: job.id })).unwrap();
+        dispatch(deleteJobFromFirestore(job))
+        dispatch(deleteJobFromState(job))
         toast.success("Job Deleted Successfully");
         navigate("/");
       } catch (error) {

@@ -1,62 +1,78 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore"; 
+import {
+  collection,
+  setDoc,
+  getDocs,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 
 const initialState = {
   jobs: [],
-  searchKeywordsArray: ["Full-time", "Part-time", "Hybrid", "Remote", "Internship", "React", "Front-end", "Back-end", "Full-stack" ,"London", "Manchester", "Leeds", "Liverpool"],
+  searchKeywordsArray: [
+    "Full-time",
+    "Part-time",
+    "Hybrid",
+    "Remote",
+    "Internship",
+    "React",
+    "Front-end",
+    "Back-end",
+    "Full-stack",
+    "London",
+    "Manchester",
+    "Leeds",
+    "Liverpool",
+  ],
   status: "idle",
   error: null,
 };
 
 const apiUrl = "/api/jobs";
 
-// CRUP OPERATIONS FOR FIREBASE FIRESTORE 
+// CRUP OPERATIONS FOR FIREBASE FIRESTORE
 
 //Fetch all docs from jobs collection
-export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async() => {
-  const querySnapshot = await getDocs(collection(db, "jobs"))
-  const data = []
+export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
+  const querySnapshot = await getDocs(collection(db, "jobs"));
+  const data = [];
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    data.push(doc.data());
+    data.push({...doc.data(), id: doc.id});
   });
-  return data;
-})
+    return data;
+});
 
-//fetch single document from jobs collection
-export const fetchSingleJob = createAsyncThunk("jobs/fetchSingleJob", async(state, id) => {
-  const docRef = doc(db, "jobs", id)
-  const docSnap = await getDoc(docRef)
-
-  if(docSnap.exists()) {
-    state.jobs.push(docSnap.data())
-  } else {
-    console.log("No such document!")
+//add new job to jobs collection
+export const addJobToFirestore = createAsyncThunk(
+  "jobs/addJobToFirestore",
+  async (body) => {
+    const { id } = body
+    try {
+      await setDoc(doc(db, "jobs", id), body);
+    } catch (error) {
+      return error;
+    }
   }
+);
 
-})
-
-export const addJobToFirestore = createAsyncThunk("jobs/addJobToFirestore", async(body) => {
-  const { id } = body
-  try {
-    await addDoc(collection(db, "jobs"), body)
-    fetchSingleJob(id)
-  } catch (error) {
-    return error
+export const updatedJobInFirestore = createAsyncThunk(
+  "jobs/updatedJobInFirestore",
+  async (body) => {
+    console.log(body);
   }
-})
+);
 
-export const updatedJobInFirestore = createAsyncThunk("jobs/updatedJobInFirestore", async(body) => {
-  
-})
-
-
-export const deleteJobFromFirestore = createAsyncThunk("jobs/deleteJobFromFirestore", async(body) => {
-
-
-})
+//delete a job from jobs collection
+export const deleteJobFromFirestore = createAsyncThunk(
+  "jobs/deleteJobFromFirestore",
+  async (body) => {
+    const { id } = body;
+    await deleteDoc(doc(db, "jobs", id));
+  }
+);
 
 /*
 CRUD OPERATIONS FOR THE JSON MOCK SERVER
@@ -112,14 +128,19 @@ export const jobsSlice = createSlice({
   initialState,
   reducers: {
     addNewJobToState: (state, action) => {
-      state.jobs.push(action.payload)
+      state.jobs.push(action.payload);
     },
-    updateJobInState: (state, action) => {
-
-    },
+    updateJobInState: (state, action) => {},
     deleteJobFromState: (state, action) => {
-
-    }
+      const { id } = action.payload;
+      const jobExists = state.jobs.find((job) => job.id === id);
+      if (!jobExists) {
+        console.log("Unable to delete job");
+        return;
+      }
+      const filteredJobs = state.jobs.filter((job) => job.id !== id);
+      state.jobs = [...filteredJobs];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -135,44 +156,43 @@ export const jobsSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       })
-      /*
-      .addCase(addNewJob.fulfilled, (state, action) => {
-        state.jobs.push(action.payload);
-      })
-      .addCase(deleteJob.fulfilled, (state, action) => {
-        const { id } = action.payload;
-        const jobExists = state.jobs.find((job) => job.id === id);
-        if (!jobExists) {
-          console.log("Unable to delete job");
-          return;
-        }
-        const filteredJobs = state.jobs.filter((job) => job.id !== id);
-        state.jobs = [...filteredJobs];
-      })
-      .addCase(updateJob.fulfilled, (state, action) => {
-        const updatedJob = action.payload;
-        //loop through jobs array in state,
-        const jobsArray = state.jobs.map((job) => {
-          //if there is an job in array with same id as the the object in payload,
-          //assign it to the job in array
-          if (job.id === updatedJob.id) {
-            job = { ...updatedJob };
-          }
-          return job;
-        });
-        //update jobs array in state
-        state.jobs = jobsArray;
-      });
-      */
+      // .addCase(addJobToFirestore.fulfilled, (state, action) => {
+      //   state.jobs.push(action.payload);
+      // })
+      // .addCase(deleteJob.fulfilled, (state, action) => {
+      //   const { id } = action.payload;
+      //   const jobExists = state.jobs.find((job) => job.id === id);
+      //   if (!jobExists) {
+      //     console.log("Unable to delete job");
+      //     return;
+      //   }
+      //   const filteredJobs = state.jobs.filter((job) => job.id !== id);
+      //   state.jobs = [...filteredJobs];
+      // })
+      // .addCase(updateJob.fulfilled, (state, action) => {
+      //   const updatedJob = action.payload;
+      //   //loop through jobs array in state,
+      //   const jobsArray = state.jobs.map((job) => {
+      //     //if there is an job in array with same id as the the object in payload,
+      //     //assign it to the job in array
+      //     if (job.id === updatedJob.id) {
+      //       job = { ...updatedJob };
+      //     }
+      //     return job;
+      //   });
+      //   //update jobs array in state
+      //   state.jobs = jobsArray;
+      // });
+      
   },
 });
 
 export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
-export const selectJobUpdatedStatus = (state) => state.jobs.jobUpdatedStatus
-export const { addNewJobToState } = jobsSlice.actions
-export const searchKeywords = (state) => state.jobs.searchKeywordsArray
+export const selectJobUpdatedStatus = (state) => state.jobs.jobUpdatedStatus;
+export const { addNewJobToState, deleteJobFromState } = jobsSlice.actions;
+export const searchKeywords = (state) => state.jobs.searchKeywordsArray;
 export const selectJobById = (state, jobId) =>
   state.jobs.jobs.find((job) => job.id === jobId);
 export default jobsSlice.reducer;
