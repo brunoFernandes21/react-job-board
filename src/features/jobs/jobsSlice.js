@@ -5,9 +5,9 @@ import {
   setDoc,
   getDocs,
   doc,
-  deleteDoc,
+  deleteDoc, updateDoc
 } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
+import { db } from "/src/firebase/firebase"
 
 const initialState = {
   jobs: [],
@@ -57,11 +57,17 @@ export const addJobToFirestore = createAsyncThunk(
     }
   }
 );
-
+//update job
 export const updatedJobInFirestore = createAsyncThunk(
   "jobs/updatedJobInFirestore",
   async (body) => {
-    console.log(body);
+    const {id } = body
+    const jobReference = doc(db, "jobs", id)
+    try {
+      await updateDoc(jobReference, body)
+    } catch (error) {
+      return error.message
+    }
   }
 );
 
@@ -130,7 +136,21 @@ export const jobsSlice = createSlice({
     addNewJobToState: (state, action) => {
       state.jobs.push(action.payload);
     },
-    updateJobInState: (state, action) => {},
+    updateJobInState: (state, action) => {
+      // SOLUTION 1
+      const updatedJob = action.payload;
+      const updatedJobsArray = state.jobs.map((job) => {
+        if(job.id === updatedJob.id) {
+          job = {...updatedJob}
+        }
+        return job
+      })
+      state.jobs = updatedJobsArray
+      //
+
+      //SOLUTION 2
+
+    },
     deleteJobFromState: (state, action) => {
       const { id } = action.payload;
       const jobExists = state.jobs.find((job) => job.id === id);
@@ -191,7 +211,7 @@ export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
 export const selectJobUpdatedStatus = (state) => state.jobs.jobUpdatedStatus;
-export const { addNewJobToState, deleteJobFromState } = jobsSlice.actions;
+export const { addNewJobToState, deleteJobFromState, updateJobInState } = jobsSlice.actions;
 export const searchKeywords = (state) => state.jobs.searchKeywordsArray;
 export const selectJobById = (state, jobId) =>
   state.jobs.jobs.find((job) => job.id === jobId);

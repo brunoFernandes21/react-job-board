@@ -14,7 +14,6 @@ import JobsFilter from "../../components/JobsFilter";
 const JobListings = ({ isHome = false }) => {
   const jobs = useSelector(selectAllJobs);
   const dispatch = useDispatch();
-  // console.log(jobs);
 
   const jobStatus = useSelector(selectStatus);
   const error = useSelector(selectError);

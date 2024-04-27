@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { selectJobById, updatedJobInFirestore, selectStatus, fetchJobs } from "./jobsSlice";
+import { selectJobById, updatedJobInFirestore, selectStatus, fetchJobs, updateJobInState } from "./jobsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -69,6 +69,7 @@ const EditJobPage = () => {
       try {
         setAddRequestStatus("pending");
         dispatch(updatedJobInFirestore(updatedJob)).unwrap();
+        dispatch(updateJobInState(updatedJob))
         toast.success("Job Updated Successfully");
         navigate(`/jobs/${job.id}`);
       } catch (error) {
@@ -108,7 +109,6 @@ const EditJobPage = () => {
                 onChange={handleChange}
                 required
               >
-                <option value="">Choose Job Type</option>
                 <option value="Full-Time">Full-Time</option>
                 <option value="Part-Time">Part-Time</option>
                 <option value="Remote">Remote</option>
