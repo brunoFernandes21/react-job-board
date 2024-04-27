@@ -41,12 +41,13 @@ const SingleJobPage = () => {
     if (confirm(text)) {
       try {
         setAddRequestStatus("pending");
-        dispatch(deleteJobFromFirestore(job))
+        await dispatch(deleteJobFromFirestore(job)).unwrap()
         dispatch(deleteJobFromState(job))
         toast.success("Job Deleted Successfully");
         navigate("/");
       } catch (error) {
         console.error("Unable to delete job", error);
+        toast.error("Unable to delete job")
       } finally {
         setAddRequestStatus("idle");
       }
@@ -54,28 +55,28 @@ const SingleJobPage = () => {
     return;
   };
 
-  if (!job) {
-    return (
-      <section className="flex items-center justify-center p-16 bg-white h-[92vh] dark:bg-slate-800">
-        <div className="flex flex-col text-center gap-6 max-w-md">
-          <FaExclamationTriangle className="text-yellow-400 text-6xl mx-auto" />
+  // if (!job) {
+  //   return (
+  //     <section className="flex items-center justify-center p-16 bg-white h-[92vh] dark:bg-slate-800">
+  //       <div className="flex flex-col text-center gap-6 max-w-md">
+  //         <FaExclamationTriangle className="text-yellow-400 text-6xl mx-auto" />
 
-          <h2 className="font-extrabold text-9xl text-slate-700 dark:text-gray-100">
-            404
-          </h2>
-          <p className="text-2xl md:text-3xl dark:text-gray-300">
-            Sorry, we couldn&apos;t find job.
-          </p>
-          <Link
-            to="/"
-            className="px-8 py-4 text-xl font-semibold rounded-xl bg-sky-600 text-white hover:bg-sky-700"
-          >
-            Back to home
-          </Link>
-        </div>
-      </section>
-    );
-  }
+  //         <h2 className="font-extrabold text-9xl text-slate-700 dark:text-gray-100">
+  //           404
+  //         </h2>
+  //         <p className="text-2xl md:text-3xl dark:text-gray-300">
+  //           Sorry, we couldn&apos;t find job.
+  //         </p>
+  //         <Link
+  //           to="/"
+  //           className="px-8 py-4 text-xl font-semibold rounded-xl bg-sky-600 text-white hover:bg-sky-700"
+  //         >
+  //           Back to home
+  //         </Link>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   return (
     <section>
@@ -173,7 +174,7 @@ const SingleJobPage = () => {
       ) : jobStatus === "failed" ? (
         <div className="text-white text-center text-xl">{error}</div>
       ) : (
-        ""
+        "No Job found"
       )}
     </section>
   );

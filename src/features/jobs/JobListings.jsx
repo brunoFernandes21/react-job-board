@@ -43,15 +43,14 @@ const JobListings = ({ isHome = false }) => {
     content = (<div className="text-white text-center text-xl">{error}</div>);
   }
 
-
   return (
     <section className="bg-sky-50 px-4 py-10 dark:bg-slate-800">
       <div className=" lg:container m-auto">
         <h2 className="text-3xl font-bold text-sky-600 mb-6 text-center dark:text-slate-100">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
-        {jobs.length === 0 && <p className="text-center text-xl dark:text-white">No jobs found. Search again</p>}
-        {jobs.length > 0 && content}
+        {/* {jobs.length === 0 && <p className="text-center text-xl dark:text-white">No jobs found. Search again</p>} */}
+        {content}
       </div>
     </section>
   );

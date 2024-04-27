@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNewJobToState, addJobToFirestore } from "./jobsSlice";
+import { addJobToFirestore, addNewJobToState } from "./jobsSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from 'uuid';
+
+
 const AddNewJobPage = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -17,9 +19,9 @@ const AddNewJobPage = () => {
     contactEmail: "",
     contactPhone: "",
   });
-  const [addRequestStatus, setAddRequestStatus] = useState("idle");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [addRequestStatus, setAddRequestStatus] = useState('idle')
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -42,7 +44,7 @@ const AddNewJobPage = () => {
       formData.companyDescription,
       formData.contactEmail,
       formData.contactPhone,
-    ].every(Boolean) && addRequestStatus === "idle";
+    ].every(Boolean) && addRequestStatus === 'idle'
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -63,9 +65,9 @@ const AddNewJobPage = () => {
     };
     if (formIsValid) {
       try {
-        setAddRequestStatus("pending");
-        dispatch(addNewJobToState(newJob));
-        dispatch(addJobToFirestore(newJob));
+        setAddRequestStatus('pending')
+        await dispatch(addJobToFirestore(newJob)).unwrap();
+        addNewJobToState(newJob)
         toast.success("Job Added Successfully");
         navigate("/");
         setFormData({
@@ -82,8 +84,9 @@ const AddNewJobPage = () => {
         });
       } catch (error) {
         console.error("Failed to save the post: ", error.message);
+        toast.error("Unable to add job")
       } finally {
-        setAddRequestStatus("idle");
+        setAddRequestStatus('idle')
       }
     }
   };
