@@ -28,6 +28,7 @@ const SingleJobPage = () => {
   const navigate = useNavigate();
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
   const job = useSelector((state) => selectJobById(state, jobId));
+  console.log(job);
 
   useEffect(() => {
     if (jobStatus === "idle") {

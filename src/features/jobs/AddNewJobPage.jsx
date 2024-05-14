@@ -67,7 +67,7 @@ const AddNewJobPage = () => {
       try {
         setAddRequestStatus('pending')
         await dispatch(addJobToFirestore(newJob)).unwrap();
-        addNewJobToState(newJob)
+        dispatch(addNewJobToState(newJob))
         toast.success("Job Added Successfully");
         navigate("/");
         setFormData({
@@ -218,7 +218,7 @@ const AddNewJobPage = () => {
             <div>
               <label htmlFor="contactEmail">Company Email</label>
               <input
-                type="text"
+                type="email"
                 id="contactEmail"
                 name="contactEmail"
                 value={formData.contactEmail}

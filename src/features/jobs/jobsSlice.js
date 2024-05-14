@@ -51,8 +51,7 @@ export const addJobToFirestore = createAsyncThunk(
   "jobs/addJobToFirestore",
   async (body) => {
     const { id } = body;
-    const docRef = await setDoc(doc(db, "jobs", id), body);
-    console.log("Document written with ID:", docRef.id);
+    await setDoc(doc(db, "jobs", id), body);
   }
 );
 //update job
@@ -131,7 +130,6 @@ export const jobsSlice = createSlice({
       state.jobs.push(action.payload);
     },
     updateJobInState: (state, action) => {
-      // SOLUTION 1
       const updatedJob = action.payload;
       const updatedJobsArray = state.jobs.map((job) => {
         if (job.id === updatedJob.id) {
@@ -140,9 +138,7 @@ export const jobsSlice = createSlice({
         return job;
       });
       state.jobs = updatedJobsArray;
-      //
 
-      //SOLUTION 2
     },
     deleteJobFromState: (state, action) => {
       const { id } = action.payload;
