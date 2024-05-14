@@ -51,7 +51,7 @@ export const addJobToFirestore = createAsyncThunk(
   "jobs/addJobToFirestore",
   async (body) => {
     const { id } = body;
-    const docRef = await setDoc(doc(db, "jobs", id), bodyss);
+    const docRef = await setDoc(doc(db, "jobs", id), body);
     console.log("Document written with ID:", docRef.id);
   }
 );
