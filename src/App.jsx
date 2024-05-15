@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, ScrollRestoration } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Jobs from "./features/jobs/JobsPage";
 import NotFound from "./pages/NotFound";
@@ -9,10 +9,12 @@ import EditJobPage from "./features/jobs/EditJobPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 const App = () => {
   return (
     <>
       <Navbar />
+        <ScrollToTop>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/jobs" element={<Jobs />} />
@@ -21,6 +23,7 @@ const App = () => {
         <Route path="/edit-job/:jobId" element={<EditJobPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+        </ScrollToTop>
       <ToastContainer
         position="top-center"
         autoClose={5000}
