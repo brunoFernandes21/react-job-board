@@ -42,8 +42,8 @@ const SingleJobPage = () => {
     if (confirm(text)) {
       try {
         setAddRequestStatus("pending");
-        await dispatch(deleteJobFromFirestore(job)).unwrap()
-        dispatch(deleteJobFromState(job))
+        await dispatch(deleteJobFromFirestore({id: job.id})).unwrap()
+        dispatch(deleteJobFromState({id: job.id}))
         toast.success("Job Deleted Successfully");
         navigate("/");
       } catch (error) {
