@@ -28,7 +28,6 @@ const SingleJobPage = () => {
   const navigate = useNavigate();
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
   const job = useSelector((state) => selectJobById(state, jobId));
-  console.log(job);
 
   useEffect(() => {
     if (jobStatus === "idle") {
@@ -42,10 +41,10 @@ const SingleJobPage = () => {
     if (confirm(text)) {
       try {
         setAddRequestStatus("pending");
-        await dispatch(deleteJobFromFirestore({id: job.id})).unwrap()
         dispatch(deleteJobFromState({id: job.id}))
-        toast.success("Job Deleted Successfully");
         navigate("/");
+        await dispatch(deleteJobFromFirestore({id: job.id})).unwrap()
+        toast.success("Job Deleted Successfully");
       } catch (error) {
         console.error("Unable to delete job", error);
         toast.error("Unable to delete job")
@@ -53,7 +52,6 @@ const SingleJobPage = () => {
         setAddRequestStatus("idle");
       }
     }
-    return;
   };
 
   // if (!job) {
