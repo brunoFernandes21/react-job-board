@@ -41,13 +41,13 @@ const SearchBox = () => {
           <input
             type="search"
             id="default-search"
-            className=" p-4 ps-10 text-sm text-slate-500 border border-slate-300 rounded-lg bg-sky-50  dark:border-slate-600 dark:placeholder-gray-400 dark:focus:ring-sky-500 dark:focus:border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+            className=" p-4 ps-10 text-sm text-slate-500 border border-slate-300 rounded-lg bg-sky-50 dark:border-slate-400 dark:bg-slate-600 dark:placeholder-gray-200 dark:text-slate-200 dark:focus:ring-sky-500 dark:focus:border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
             placeholder="Search jobs..."
             // required
             value={search}
             onChange={handleChange}
           />
-          {search && <IoMdCloseCircle className="absolute cursor-pointer -mt-14 right-28 text-xl text-slate-500" onClick={() => setSearch("")}/>}
+          {search && <IoMdCloseCircle className="absolute cursor-pointer -mt-14 right-28 text-xl text-slate-500 dark:text-slate-200" onClick={() => setSearch("")}/>}
 
           <button
             type="submit"

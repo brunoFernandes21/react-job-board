@@ -1,7 +1,7 @@
 
 const Card = ({ children, bg = 'bg-gray-100'}) => {
   return (
-    <div className={`${bg} p-6 rounded-lg transition-all ease-in-out duration-500 hover:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:shadow-sky-500`}>
+    <div className={`${bg} dark:bg-slate-700 dark:text-white p-6 rounded-lg transition-all ease-in-out duration-500 hover:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:shadow-sky-500`}>
         { children }
     </div>
   )

@@ -16,7 +16,7 @@ const Navbar = () => {
                 React JobsBoard
               </span>
             </NavLink>
-            <div className="md:ml-auto ">
+            <div className="ml-4 md:ml-auto ">
               <div className="flex space-x-2">
                 <NavLink
                   to="/"

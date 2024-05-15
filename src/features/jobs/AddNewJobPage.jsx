@@ -22,6 +22,7 @@ const AddNewJobPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [addRequestStatus, setAddRequestStatus] = useState('idle')
+  // const [phoneIsNotValid, setPhoneIsNotValid] = useState(false)
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -33,6 +34,12 @@ const AddNewJobPage = () => {
     });
   };
 
+  // const alphabet = new RegExp(/^\d+$/)
+      // if(!alphabet.test(formData.contactPhone)) {
+    //   console.log("true");
+    //   setPhoneIsNotValid(true)
+    //   return
+    // }
   const formIsValid =
     [
       formData.title,
@@ -48,6 +55,7 @@ const AddNewJobPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const newJob = {
       id: uuidv4(),
       title: formData.title,
@@ -94,7 +102,7 @@ const AddNewJobPage = () => {
   return (
     <section className="bg-sky-50 dark:bg-slate-800">
       <div className="container m-auto max-w-3xl py-10 md:py-24 px-5">
-        <div className="form__section relative bg-white text-slate-900 px-4 py-8 mb-4 dark:bg-slate-800 dark:text-white">
+        <div className="form__section relative bg-white text-slate-900 px-4 py-8 mb-4 dark:bg-slate-700 dark:text-white">
           <h3 className="text-xl font-bold">Post New Job</h3>
           <form onSubmit={handleSubmit} className="mt-8">
             <div className="lg:grid grid-cols-2 gap-4">
@@ -240,7 +248,10 @@ const AddNewJobPage = () => {
                 onChange={handleChange}
                 required
                 placeholder="Please company phone number here..."
+                pattern="^[0-9]{11}$"
+                title="Telephone number must be 11 digits. No characters allowed!"
               />
+              {/* {phoneIsNotValid && <p className="text-red-700 mb-4">Telephone number must be 11 digits. No characters allowed!</p>} */}
             </div>
 
             <button
