@@ -42,7 +42,7 @@ const SingleJobPage = () => {
       try {
         setAddRequestStatus("pending");
         dispatch(deleteJobFromState({id: job.id}))
-        navigate("/");
+        navigate("/jobs");
         await dispatch(deleteJobFromFirestore({id: job.id})).unwrap()
         toast.success("Job Deleted Successfully");
       } catch (error) {
