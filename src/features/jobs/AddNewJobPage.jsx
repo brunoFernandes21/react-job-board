@@ -247,7 +247,7 @@ const AddNewJobPage = () => {
             </div>
 
             <button
-              disabled={!formIsValid}
+              // disabled={!formIsValid}
               className={`form__btn w-full ${
                 formIsValid ? "text-white bg-sky-600" : "bg-gray-300"
               }`}
