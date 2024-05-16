@@ -12,13 +12,15 @@ const JobListing = ({ job }) => {
     description = description.length >= 110 ? description.substring(0, 110) + "..." : description;
   }
 
+  let jobTitle = job.title.length >= 25 ? job.title.substring(0, 25) + "..." : job.title
+
 
   return (
     <div className="bg-white rounded-xl transition-all ease-in-out duration-500 hover:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:shadow-sky-500 relative dark:bg-slate-700 dark:text-white">
       <div className="p-4">
         <div className="mb-6">
           <div className="text-gray-600 my-2 dark:text-white">{job.type}</div>
-          <h3 className="text-xl text-black font-bold dark:text-white">{job.title}</h3>
+          <h3 className="text-xl text-black font-bold dark:text-white">{jobTitle}</h3>
         </div>
         <div className="mb-5 text-black dark:text-white min-h-12">{description}</div>
         <button onClick={() => setShowFullDescription((prevState) => !prevState)} className="text-sky-500 mb-4 hover:text-sky-600 dark:text-white">

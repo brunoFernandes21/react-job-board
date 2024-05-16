@@ -5,43 +5,43 @@ import { FaFolder, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 const JobsFilter = () => {
   const dispatch = useDispatch();
   return (
-    <section className=" z-10 shadow-xl mb-8 p-2 rounded-lg flex items-center justify-center">
-      <p className="text-slate-900 font-bold dark:text-slate-200 mr-24">
+    <section className="w-[300px] md:w-[650px] lg:w-[950px] mx-auto z-10 shadow-xl mb-8 p-2 rounded-lg flex items-center justify-center">
+      <p className="hidden md:block text-slate-900 font-bold dark:text-slate-200 w-36">
         Sort jobs by
       </p>
-      <section className="flex items-center">
+      <section className="flex items-center justify-center w-full">
         <button
           onClick={() => dispatch(sortBy("title"))}
-          className="group relative w-36 flex items-center gap-1 text-gray-500"
+          className="group relative px-4 md:px-8 flex items-center gap-1 text-gray-500"
         >
-          <FaUser />
-          <span className="text-gray-500 px-2 py-1">Title</span>
-          <span className=" absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20 -left-8">
-            Sort By Job Title
+          <FaUser className="hidden md:block" />
+          <span className="text-gray-500 px-2">Title</span>
+          <span className=" absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20">
+            Title
           </span>
         </button>
 
         <button
           onClick={() => dispatch(sortBy("type"))}
-          className=" group relative w-36 flex items-center gap-1 text-gray-500"
+          className=" group relative px-4 md:px-8 flex items-center gap-1 text-gray-500"
         >
-          <span className="absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20 -left-8 ">
-            Sort By Job Type
+          <span className="absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20">
+            Type
           </span>
 
-          <FaFolder />
-          <span className="text-gray-500 px-2 py-1">Type</span>
+          <FaFolder className="hidden md:block" />
+          <span className="text-gray-500 px-2">Type</span>
         </button>
 
         <button
           onClick={() => dispatch(sortBy("location"))}
-          className=" group relative w-36 flex items-center gap-1 text-gray-500"
+          className=" group relative px-4 md:px-8 flex items-center gap-1 text-gray-500"
         >
-          <span className="absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20 -left-8 ">
-            Sort By Job Location
+          <span className="absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20">
+            Location
           </span>
-          <FaMapMarkerAlt />
-          <span className="text-gray-500 px-2 py-1">Location</span>
+          <FaMapMarkerAlt className="hidden md:block"/>
+          <span className="text-gray-500 px-2">Location</span>
         </button>
       </section>
     </section>
