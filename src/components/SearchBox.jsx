@@ -3,7 +3,6 @@ import { fetchJobs,  } from "../features/jobs/jobsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import JobsFilter from "./JobsFilter";
 import { IoMdCloseCircle } from "react-icons/io";
 
 const SearchBox = () => {
@@ -56,9 +55,7 @@ const SearchBox = () => {
             Find jobs
           </button>
         </div>
-      </form>
-      {search && showList && <JobsFilter search={search} toggleKeyWordList={toggleKeyWordList}/>}
-      
+      </form>      
     </>
   );
 };

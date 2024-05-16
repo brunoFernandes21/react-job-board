@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import axios from "axios";
 import {
   collection,
@@ -150,6 +150,18 @@ export const jobsSlice = createSlice({
       const filteredJobs = state.jobs.filter((job) => job.id !== id);
       state.jobs = [...filteredJobs];
     },
+    sortByJobTitle: (state, action) => {
+      let sortedState = []
+      if(state.jobs.length > 0) {
+        if(action.payload === "title") {
+          const sortedJobs = state.jobs.sort((a, b) => {
+            return a.title.localeCompare(b.title);
+          })
+          sortedState = [...sortedJobs]
+        }
+      }
+      state.jobs = sortedState
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -198,8 +210,8 @@ export const jobsSlice = createSlice({
 export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
-export const selectJobUpdatedStatus = (state) => state.jobs.jobUpdatedStatus;
-export const { addNewJobToState, deleteJobFromState, updateJobInState } =
+export const { addNewJobToState, deleteJobFromState, updateJobInState, sortByJobTitle,
+  sortByJotType } =
   jobsSlice.actions;
 export const searchKeywords = (state) => state.jobs.searchKeywordsArray;
 export const selectJobById = (state, jobId) =>

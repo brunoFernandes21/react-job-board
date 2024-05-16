@@ -2,12 +2,9 @@ import { Link } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
 import TimeAgo from "./TimeAgo";
-import { selectJobUpdatedStatus } from "../jobs/jobsSlice"
-import { useSelector } from "react-redux";
 
 const JobListing = ({ job }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
-  const jobUpdated = useSelector(selectJobUpdatedStatus)
 
   let description = job.description;
 

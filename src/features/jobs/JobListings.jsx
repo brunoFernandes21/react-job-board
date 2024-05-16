@@ -10,7 +10,7 @@ import {
 import { useEffect } from "react";
 import Spinner from "../../components/Spinner";
 import JobsFilter from "../../components/JobsFilter";
-
+//TODO: ADD DIFFERENT BUTONS FOR EACH FILTER AND DISPATCH THE SAME REDUCER ACTION TO EACH BUTTON ON CLICK. THEN IN SLICE, FILTER THE JOBS BASED ON THE PAYLOAD. 
 const JobListings = ({ isHome = false }) => {
   const jobs = useSelector(selectAllJobs);
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const JobListings = ({ isHome = false }) => {
     if (jobStatus === "idle") {
       dispatch(fetchJobs());
     }
-  }, [jobStatus, dispatch]);
+  }, [jobStatus, dispatch, jobs]);
 
   let content;
   if (jobStatus === "loading") {
@@ -49,6 +49,7 @@ const JobListings = ({ isHome = false }) => {
         <h2 className="text-3xl font-bold text-sky-600 mb-6 text-center dark:text-slate-100">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
+        {!isHome && <JobsFilter/>}
         {/* {jobs.length === 0 && <p className="text-center text-xl dark:text-white">No jobs found. Search again</p>} */}
         {content}
       </div>

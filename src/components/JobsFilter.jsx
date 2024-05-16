@@ -1,127 +1,38 @@
-import { useSelector } from "react-redux";
-import { searchKeywords } from "../features/jobs/jobsSlice";
-import { FaSearch } from "react-icons/fa";
-
-const JobsFilter = ({ search, toggleKeyWordList }) => {
-  const searchValues = useSelector(searchKeywords);
-
-  const filteredKeywords = searchValues.filter((keyword) =>
-    keyword.toLowerCase().includes(search)
-  );
-
-  const keyworkList = filteredKeywords.map((item) => {
-    return (
-      <ul key={item} className="p-4 border-b hover:bg-slate-100 hover:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:shadow-sky-500 rounded-md ">
-        <li
-          className="flex items-center gap-4 cursor-pointer"
-          onClick={() => toggleKeyWordList(item)}
-        >
-          <FaSearch className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-          {item}
-        </li>
-      </ul>
-    );
-  });
-
+import { useSelector, useDispatch } from "react-redux";
+import { sortByJobTitle, sortByJotType } from "../features/jobs/jobsSlice";
+import { FaFolder } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+const JobsFilter = () => {
+  const dispatch = useDispatch()
   return (
-    <section className=" z-10 w-[350px] bg-white rounded-md -mt-3 -ml-24 shadow-xl">
-      <div className="">{keyworkList}</div>
-    </section>
-    // <section className="mb-6 flex items-center gap-4">
-    //   <p className="dark:text-white font-bold mr-10">Sort By</p>
-    //   <form className=" flex items-start flex-grow gap-10">
-    //     {/* <div className="flex flex-row gap-4 p-0 h-8">
-    //       <label
-    //         htmlFor="mostRecent"
-    //         className="dark:text-white self-center font-light whitespace-nowrap"
-    //       >
-    //         Most Recent
-    //       </label>
-    //       <input
-    //         type="checkbox"
-    //         name="sortBy"
-    //         id="sortBy"
-    //         value="sortBy"
-    //         onChange={() => setSortBy(!sortBy)}
-    //         checked={sortBy}
-    //         className=" flex self-center mt-5"
-    //       />
-    //     </div> */}
-    //     <div className="flex flex-row gap-4 h-8">
-    //       <label
-    //         htmlFor="full-time"
-    //         className="dark:text-white self-center font-light whitespace-nowrap"
-    //       >
-    //         Full Time
-    //       </label>
-    //       <input
-    //         type="radio"
-    //         name="jobType"
-    //         id="full-time"
-    //         value="Full-Time"
-    //         onChange={handleChange}
-    //         checked={formData.jobType === "Full-Time"}
-    //         className=" flex self-center mt-5"
-    //         onClick={sortJobs}
-    //       />
-    //     </div>
+    <section className=" z-10 shadow-xl mb-8 p-2 rounded-lg flex items-center justify-center">
+      <p className="text-slate-900 font-black dark:text-slate-200 mr-24">Sort jobs by</p>
+      <section className="flex items-center">
+        <button
+          onClick={() => dispatch(sortByJobTitle("title"))}
+          className="group relative w-36 flex items-center gap-2 text-gray-500"
+        >
+          <FaFolder />
+          <span className="text-gray-500 px-2 py-1">title</span>
+          <span className=" absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20 -left-8">
+            Sort By Job Title
+          </span>
+        </button>
 
-    //     <div className="flex flex-row gap-4 h-8">
-    //       <label
-    //         htmlFor="part-time"
-    //         className="dark:text-white self-center font-light whitespace-nowrap"
-    //       >
-    //         Part-Time
-    //       </label>
-    //       <input
-    //         type="radio"
-    //         name="jobType"
-    //         id="part-time"
-    //         value="Part-Time"
-    //         onChange={handleChange}
-    //         checked={formData.jobType === "Part-Time"}
-    //         className=" flex self-center mt-5"
-    //         onClick={sortJobs}
-    //       />
-    //     </div>
-    //     <div className="flex flex-row gap-4 h-8">
-    //       <label
-    //         htmlFor="remote"
-    //         className="dark:text-white self-center font-light whitespace-nowrap"
-    //       >
-    //         Remote
-    //       </label>
-    //       <input
-    //         type="radio"
-    //         name="jobType"
-    //         id="remote"
-    //         value="Remote"
-    //         onChange={handleChange}
-    //         checked={formData.jobType === "Remote"}
-    //         className=" flex self-center mt-5"
-    //         onClick={sortJobs}
-    //       />
-    //     </div>
-    //     <div className="flex flex-row gap-4 h-8">
-    //       <label
-    //         htmlFor="hybrid"
-    //         className="dark:text-white self-center font-light whitespace-nowrap"
-    //       >
-    //         Hybrid
-    //       </label>
-    //       <input
-    //         type="radio"
-    //         name="jobType"
-    //         id="hybrid"
-    //         value="Hybrid"
-    //         onChange={handleChange}
-    //         checked={formData.jobType === "Hybrid"}
-    //         className=" flex self-center mt-5"
-    //         onClick={sortJobs}
-    //       />
-    //     </div>
-    //   </form>
-    // </section>
+        <button
+          // onClick={byJobType}
+          className=" group relative w-36 flex items-center gap-2 text-gray-500"
+        >
+          <span className="absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20 -left-8 ">
+            Sort By Job Type
+          </span>
+          <FaUser />
+          <span className="text-gray-500 px-2 py-1">type</span>
+        </button>
+      </section>
+      
+      {/* add difrent btns here */}
+    </section>
   );
 };
 
