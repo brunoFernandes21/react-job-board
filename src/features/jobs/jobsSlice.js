@@ -39,7 +39,6 @@ const apiUrl = "/api/jobs";
 
 //Fetch all docs from jobs collection
 export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
-
   const querySnapshot = await getDocs(collection(db, "jobs"));
   const data = [];
   querySnapshot.forEach((doc) => {
@@ -47,7 +46,7 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
     data.push({ ...doc.data(), id: doc.id });
   });
 
-  return data.sort((a,b) => b.date.localeCompare(a.date));
+  return data.sort((a, b) => b.date.localeCompare(a.date));
 });
 
 //add new job to jobs collection
@@ -153,14 +152,11 @@ export const jobsSlice = createSlice({
       const filteredJobs = state.jobs.filter((job) => job.id !== id);
       state.jobs = [...filteredJobs];
     },
-    sortByJobTitle: (state, action) => {
-      if (action.payload === "title") {
-        const sortedJobs = [...state.jobs].sort((a, b) => {
-          return a.title.localeCompare(b.title);
-        });
-        return {...state, jobs: sortedJobs}
-      }
-      return state.jobs
+    sortBy: (state, action) => {
+      const sortedJobs = [...state.jobs].sort((a, b) => {
+        return a[action.payload].localeCompare(b[action.payload]);
+      });
+      return {...state, jobs: sortedJobs}
     },
   },
   extraReducers: (builder) => {
@@ -211,8 +207,7 @@ export const {
   addNewJobToState,
   deleteJobFromState,
   updateJobInState,
-  sortByJobTitle,
-  sortByJotType,
+  sortBy
 } = jobsSlice.actions;
 export const searchKeywords = (state) => state.jobs.searchKeywordsArray;
 export const selectJobById = (state, jobId) =>
