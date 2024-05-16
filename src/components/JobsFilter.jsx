@@ -5,11 +5,11 @@ import { FaFolder, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 const JobsFilter = () => {
   const dispatch = useDispatch();
   return (
-    <section className="w-[300px] md:w-[650px] lg:w-[950px] mx-auto z-10 shadow-xl mb-8 p-2 rounded-lg flex items-center justify-center">
+    <section className="w-[300px] md:w-[650px] lg:w-[950px] mx-auto z-10 shadow-xl mb-8 p-2 rounded-lg flex items-center justify-between">
       <p className="hidden md:block text-slate-900 font-bold dark:text-slate-200 w-36">
         Sort jobs by
       </p>
-      <section className="flex items-center justify-center w-full">
+      <section className="flex items-center justify-end">
         <button
           onClick={() => dispatch(sortBy("title"))}
           className="group relative px-4 md:px-8 flex items-center gap-1 text-gray-500"
