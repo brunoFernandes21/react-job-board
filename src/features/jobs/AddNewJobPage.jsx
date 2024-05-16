@@ -22,7 +22,6 @@ const AddNewJobPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [addRequestStatus, setAddRequestStatus] = useState('idle')
-  // const [phoneIsNotValid, setPhoneIsNotValid] = useState(false)
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -34,12 +33,6 @@ const AddNewJobPage = () => {
     });
   };
 
-  // const alphabet = new RegExp(/^\d+$/)
-      // if(!alphabet.test(formData.contactPhone)) {
-    //   console.log("true");
-    //   setPhoneIsNotValid(true)
-    //   return
-    // }
   const formIsValid =
     [
       formData.title,
@@ -251,7 +244,6 @@ const AddNewJobPage = () => {
                 pattern="^[0-9]{11}$"
                 title="Telephone number must be 11 digits. No characters allowed!"
               />
-              {/* {phoneIsNotValid && <p className="text-red-700 mb-4">Telephone number must be 11 digits. No characters allowed!</p>} */}
             </div>
 
             <button
