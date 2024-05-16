@@ -138,7 +138,6 @@ export const jobsSlice = createSlice({
         return job;
       });
       state.jobs = updatedJobsArray;
-
     },
     deleteJobFromState: (state, action) => {
       const { id } = action.payload;
@@ -151,16 +150,12 @@ export const jobsSlice = createSlice({
       state.jobs = [...filteredJobs];
     },
     sortByJobTitle: (state, action) => {
-      let sortedState = []
-      if(state.jobs.length > 0) {
-        if(action.payload === "title") {
-          const sortedJobs = state.jobs.sort((a, b) => {
-            return a.title.localeCompare(b.title);
-          })
-          sortedState = [...sortedJobs]
-        }
+      if (action.payload === "title") {
+        const sortedJobs = [...state.jobs].sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        });
+        state.jobs = sortedJobs;
       }
-      state.jobs = sortedState
     },
   },
   extraReducers: (builder) => {
@@ -210,9 +205,13 @@ export const jobsSlice = createSlice({
 export const selectStatus = (state) => state.jobs.status;
 export const selectError = (state) => state.jobs.error;
 export const selectAllJobs = (state) => state.jobs.jobs;
-export const { addNewJobToState, deleteJobFromState, updateJobInState, sortByJobTitle,
-  sortByJotType } =
-  jobsSlice.actions;
+export const {
+  addNewJobToState,
+  deleteJobFromState,
+  updateJobInState,
+  sortByJobTitle,
+  sortByJotType,
+} = jobsSlice.actions;
 export const searchKeywords = (state) => state.jobs.searchKeywordsArray;
 export const selectJobById = (state, jobId) =>
   state.jobs.jobs.find((job) => job.id === jobId);
