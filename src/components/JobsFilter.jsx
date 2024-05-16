@@ -20,7 +20,7 @@ const JobsFilter = () => {
         </button>
 
         <button
-          // onClick={byJobType}
+          onClick={() => dispatch(sortByJobTitle("type"))}
           className=" group relative w-36 flex items-center gap-2 text-gray-500"
         >
           <span className="absolute group-hover:opacity-90 transition-opacity bg-gray-700 text-white px-4 py-1 rounded opacity-0 mb-20 -left-8 ">

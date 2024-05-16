@@ -14,24 +14,21 @@ import JobsFilter from "../../components/JobsFilter";
 const JobListings = ({ isHome = false }) => {
   const jobs = useSelector(selectAllJobs);
   const dispatch = useDispatch();
-
   const jobStatus = useSelector(selectStatus);
   const error = useSelector(selectError);
 
   useEffect(() => {
-    if (jobStatus === "idle") {
       dispatch(fetchJobs());
-    }
-  }, [jobStatus, dispatch, jobs]);
+  }, []);
 
   let content;
   if (jobStatus === "loading") {
     content = <Spinner text="loading..." loading={jobStatus} />;
   } else if (jobStatus === "succeeded") {
-    const sortedJobs = jobs.slice().sort((a, b) => {
-      return b.date.localeCompare(a.date);
-    });
-    const jobListings = isHome ? sortedJobs.slice(0, 3) : sortedJobs;
+    // const sortedJobs = jobs.slice().sort((a, b) => {
+    //   return b.date.localeCompare(a.date);
+    // });
+    const jobListings = isHome ? jobs.slice(0, 3) : jobs;
     content = (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {jobListings.map((job) => (

@@ -4,6 +4,8 @@ import {
   collection,
   setDoc,
   getDocs,
+  query,
+  orderBy,
   doc,
   deleteDoc,
   updateDoc,
@@ -37,13 +39,15 @@ const apiUrl = "/api/jobs";
 
 //Fetch all docs from jobs collection
 export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
+
   const querySnapshot = await getDocs(collection(db, "jobs"));
   const data = [];
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     data.push({ ...doc.data(), id: doc.id });
   });
-  return data;
+
+  return data.sort((a,b) => b.date.localeCompare(a.date));
 });
 
 //add new job to jobs collection
@@ -154,8 +158,9 @@ export const jobsSlice = createSlice({
         const sortedJobs = [...state.jobs].sort((a, b) => {
           return a.title.localeCompare(b.title);
         });
-        state.jobs = sortedJobs;
+        return {...state, jobs: sortedJobs}
       }
+      return state.jobs
     },
   },
   extraReducers: (builder) => {
@@ -172,9 +177,6 @@ export const jobsSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       });
-    // .addCase(addJobToFirestore.fulfilled, (state, action) => {
-    //   state.jobs.push(action.payload);
-    // })
     // .addCase(deleteJob.fulfilled, (state, action) => {
     //   const { id } = action.payload;
     //   const jobExists = state.jobs.find((job) => job.id === id);
