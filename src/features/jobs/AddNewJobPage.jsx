@@ -108,7 +108,7 @@ const AddNewJobPage = () => {
                   value={formData.title}
                   onChange={handleChange}
                   placeholder="Please enter job title..."
-                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                   required
                 />
               </div>
@@ -120,10 +120,10 @@ const AddNewJobPage = () => {
                   id="type"
                   value={formData.type}
                   onChange={handleChange}
-                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                   required
                 >
-                  <option value="">Choose Job Type</option>
+                  <option value="">Select Job Type</option>
                   <option value="Full-time">Full-time</option>
                   <option value="Part-time">Part-time</option>
                   <option value="Remote">Remote</option>
@@ -142,7 +142,7 @@ const AddNewJobPage = () => {
                   id="salary"
                   value={formData.salary}
                   onChange={handleChange}
-                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                   required
                 >
                   <option value="">Select Salary Range</option>
@@ -168,7 +168,7 @@ const AddNewJobPage = () => {
                   name="location"
                   value={formData.location}
                   onChange={handleChange}
-                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                  className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                   required
                   placeholder="Please enter location here..."
                 />
@@ -182,7 +182,7 @@ const AddNewJobPage = () => {
                 id="description"
                 value={formData.description}
                 onChange={handleChange}
-                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                 placeholder="Please enter job descrition here..."
                 required
               ></textarea>
@@ -197,7 +197,7 @@ const AddNewJobPage = () => {
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
-                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                 required
                 placeholder="Please company name here..."
               />
@@ -210,7 +210,7 @@ const AddNewJobPage = () => {
                 name="companyDescription"
                 value={formData.companyDescription}
                 onChange={handleChange}
-                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                 placeholder="Please company descrition here..."
                 required
               ></textarea>
@@ -224,7 +224,7 @@ const AddNewJobPage = () => {
                 name="contactEmail"
                 value={formData.contactEmail}
                 onChange={handleChange}
-                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                 required
                 placeholder="Please enter company email here..."
               />
@@ -237,7 +237,7 @@ const AddNewJobPage = () => {
                 id="contactPhone"
                 name="contactPhone"
                 value={formData.contactPhone}
-                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                className="dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-slate-100"
                 onChange={handleChange}
                 required
                 placeholder="Please company phone number here..."
@@ -247,10 +247,7 @@ const AddNewJobPage = () => {
             </div>
 
             <button
-              disabled={!formIsValid}
-              className={`form__btn w-full ${
-                formIsValid ? "text-white bg-sky-600" : "bg-gray-300"
-              }`}
+              className="form__btn w-full text-white bg-sky-500 hover:bg-sky-600 transition duration-150 ease-in"
             >
               Post Job
             </button>

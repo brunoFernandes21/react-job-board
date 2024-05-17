@@ -36,6 +36,12 @@ const Navbar = () => {
                 >
                   Post Job
                 </NavLink>
+                <NavLink
+                  to="/register"
+                  className={linkClass}
+                >
+                 Register
+                </NavLink>
               </div>
             </div>
           </div>

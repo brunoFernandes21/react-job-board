@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import {
   collection,
@@ -6,6 +6,7 @@ import {
   getDocs,
   query,
   orderBy,
+  where,
   doc,
   deleteDoc,
   updateDoc,
@@ -38,14 +39,16 @@ const apiUrl = "/api/jobs";
 // CRUP OPERATIONS FOR FIREBASE FIRESTORE
 
 //Fetch all docs from jobs collection
-export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async () => {
-  const querySnapshot = await getDocs(collection(db, "jobs"));
+export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (searchValue) => {
+  const collectionRef = collection(db, "jobs")
+  // const queryParam = q === "undefined" ? collectionRef : q
+  const q = searchValue ? query(collectionRef, where("type", "==", searchValue)) : collectionRef
+  const querySnapshot = await getDocs(q);
   const data = [];
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     data.push({ ...doc.data(), id: doc.id });
   });
-
   return data.sort((a, b) => b.date.localeCompare(a.date));
 });
 

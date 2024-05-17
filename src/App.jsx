@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import Register from "./pages/Register";
 const App = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/jobs/:jobId" element={<SingleJobPage />} />
         <Route path="/add-new-job" element={<AddNewJobPage />} />
         <Route path="/edit-job/:jobId" element={<EditJobPage />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
         </ScrollToTop>

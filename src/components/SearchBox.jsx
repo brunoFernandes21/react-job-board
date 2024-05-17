@@ -22,13 +22,13 @@ const SearchBox = () => {
       dispatch(fetchJobs(search));
       setSearch("");
     } else {
-      toast.warning("Enter a job type or location to start a search");
+      toast.warning("Enter a job type or location to begin a search");
     }
   };
-  const toggleKeyWordList = (item) => {
-    setSearch(item)
-    setShowList(false)
-  }
+  // const toggleKeyWordList = (item) => {
+  //   setSearch(item)
+  //   setShowList(false)
+  // }
 
   return (
     <>
@@ -41,7 +41,7 @@ const SearchBox = () => {
             type="search"
             id="default-search"
             className=" p-4 ps-10 text-sm text-slate-500 border border-slate-300 rounded-lg bg-sky-50 dark:border-slate-400 dark:bg-slate-600 dark:placeholder-gray-200 dark:text-slate-200 dark:focus:ring-sky-500 dark:focus:border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
-            placeholder="Search jobs..."
+            placeholder="Search jobs by type or location..."
             // required
             value={search}
             onChange={handleChange}
