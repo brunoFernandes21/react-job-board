@@ -25,9 +25,6 @@ const JobListings = ({ isHome = false }) => {
   if (jobStatus === "loading") {
     content = <Spinner text="loading..." loading={jobStatus} />;
   } else if (jobStatus === "succeeded") {
-    // const sortedJobs = jobs.slice().sort((a, b) => {
-    //   return b.date.localeCompare(a.date);
-    // });
     const jobListings = isHome ? jobs.slice(0, 3) : jobs;
     content = (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -37,7 +34,7 @@ const JobListings = ({ isHome = false }) => {
       </div>
     );
   } else if (jobStatus === "failed") {
-    content = (<div className="text-white text-center text-xl">{error}</div>);
+    content = (<div className="text-red-500 dark:text-white text-center text-xl">Access Denied!</div>);
   }
 
   return (

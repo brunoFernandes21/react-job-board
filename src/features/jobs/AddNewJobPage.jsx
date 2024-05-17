@@ -247,7 +247,14 @@ const AddNewJobPage = () => {
             </div>
 
             <button
+<<<<<<< HEAD
               className="form__btn w-full text-white bg-sky-500 hover:bg-sky-600 transition duration-150 ease-in"
+=======
+              // disabled={!formIsValid}
+              className={`form__btn w-full ${
+                formIsValid ? "text-white bg-sky-600" : "bg-gray-300"
+              }`}
+>>>>>>> b2b80382e4d9f48cc44c07c7ae167168c7f10c1b
             >
               Post Job
             </button>
