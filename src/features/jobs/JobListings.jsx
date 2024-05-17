@@ -34,7 +34,7 @@ const JobListings = ({ isHome = false }) => {
       </div>
     );
   } else if (jobStatus === "failed") {
-    content = (<div className="text-white text-center text-xl">{error}</div>);
+    content = (<div className="text-red-500 dark:text-white text-center text-xl">Access Denied!</div>);
   }
 
   return (
