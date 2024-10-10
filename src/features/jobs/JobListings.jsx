@@ -27,7 +27,7 @@ const JobListings = ({ isHome = false }) => {
   } else if (jobStatus === "succeeded") {
     const jobListings = isHome ? jobs.slice(0, 3) : jobs;
     content = (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
         {jobListings.map((job) => (
           <JobListing key={job.id} job={job} />
         ))}

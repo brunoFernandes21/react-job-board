@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route, ScrollRestoration } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Jobs from "./features/jobs/JobsPage";
 import NotFound from "./pages/NotFound";
