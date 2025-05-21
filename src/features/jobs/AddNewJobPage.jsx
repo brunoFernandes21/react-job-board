@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import { addJobToFirestore, addNewJobToState } from "./jobsSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { v4 as uuidv4 } from 'uuid';
-
+import { v4 as uuidv4 } from "uuid";
 
 const AddNewJobPage = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +20,7 @@ const AddNewJobPage = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [addRequestStatus, setAddRequestStatus] = useState('idle')
+  const [addRequestStatus, setAddRequestStatus] = useState("idle");
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -44,7 +43,7 @@ const AddNewJobPage = () => {
       formData.companyDescription,
       formData.contactEmail,
       formData.contactPhone,
-    ].every(Boolean) && addRequestStatus === 'idle'
+    ].every(Boolean) && addRequestStatus === "idle";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -66,9 +65,9 @@ const AddNewJobPage = () => {
     };
     if (formIsValid) {
       try {
-        setAddRequestStatus('pending')
+        setAddRequestStatus("pending");
         await dispatch(addJobToFirestore(newJob)).unwrap();
-        dispatch(addNewJobToState(newJob))
+        dispatch(addNewJobToState(newJob));
         toast.success("Job Added Successfully");
         navigate("/");
         setFormData({
@@ -85,9 +84,9 @@ const AddNewJobPage = () => {
         });
       } catch (error) {
         console.error("Failed to save the post: ", error.message);
-        toast.error("Unable to add job")
+        toast.error("Unable to add job");
       } finally {
-        setAddRequestStatus('idle')
+        setAddRequestStatus("idle");
       }
     }
   };
@@ -96,7 +95,7 @@ const AddNewJobPage = () => {
     <section className="bg-sky-50 dark:bg-slate-800">
       <div className="container m-auto max-w-3xl py-10 md:py-24 px-5">
         <div className="form__section relative bg-white text-slate-900 px-4 py-8 mb-4 dark:bg-slate-700 dark:text-white">
-          <h3 className="text-xl font-bold">Post New Job</h3>
+          <h3 className="text-xl font-bold">Post New Job </h3>
           <form onSubmit={handleSubmit} className="mt-8">
             <div className="lg:grid grid-cols-2 gap-4">
               <div>
@@ -246,9 +245,7 @@ const AddNewJobPage = () => {
               />
             </div>
 
-            <button
-              className="form__btn w-full text-white bg-sky-500 hover:bg-sky-600 transition duration-150 ease-in"
-            >
+            <button className="form__btn w-full text-white bg-sky-500 hover:bg-sky-600 transition duration-150 ease-in">
               Post Job
             </button>
           </form>

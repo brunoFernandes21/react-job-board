@@ -15,17 +15,17 @@ const App = () => {
   return (
     <>
       <Navbar />
-        <ScrollToTop>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/jobs" element={<Jobs />} />
-        <Route path="/jobs/:jobId" element={<SingleJobPage />} />
-        <Route path="/add-new-job" element={<AddNewJobPage />} />
-        <Route path="/edit-job/:jobId" element={<EditJobPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-        </ScrollToTop>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/jobs/:jobId" element={<SingleJobPage />} />
+          <Route path="/add-new-job" element={<AddNewJobPage />} />
+          <Route path="/edit-job/:jobId" element={<EditJobPage />} />
+          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ScrollToTop>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -39,7 +39,7 @@ const App = () => {
         theme="dark"
         transition:Bounce
       />
-      <Footer/>
+      <Footer />
     </>
   );
 };
