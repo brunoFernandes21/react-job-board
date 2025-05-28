@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+// import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -8,7 +8,6 @@ const Footer = () => {
   return (
     <section className="bg-sky-800 text-white py-8 bottom-0 w-full">
       <div className="flex flex-col lg:flex-row items-center md:justify-between gap-2 md:mx-20">
-        
         <div className="">
           <Link
             to="/jobs"
@@ -31,8 +30,8 @@ const Footer = () => {
             Reserved
           </p>
         </div>
-        
-        <div className="flex gap-4 items-center">
+
+        {/* <div className="flex gap-4 items-center">
           <div>
             <p className="text-slate-400">Contact me: brunoaf1523@gmail.com</p>
           </div>
@@ -45,7 +44,7 @@ const Footer = () => {
           <Link to="https://github.com/brunoFernandes21" target="_blank">
             <FaGithub className="text-3xl text-slate-400 hover:text-white transition ease-in-out durantion-300" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
